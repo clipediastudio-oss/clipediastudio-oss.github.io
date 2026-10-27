@@ -191,6 +191,14 @@ section.paper { background: var(--papel); }
 .plan li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 12px; height: 7px; border-left: 2px solid var(--turquesa); border-bottom: 2px solid var(--turquesa); transform: rotate(-45deg); }
 .plan .tag { align-self: flex-start; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; background: var(--mostaza); color: var(--tinta); }
 .plan .btn { margin-top: auto; }
+.pagos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 360px)); justify-content: center; gap: 16px; margin-top: 8px; }
+.pago { border: 1.5px solid var(--linea); border-radius: 22px; padding: 22px; background: var(--blanco); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pago .name { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+.pago p { margin: 0; font-size: 14px; color: var(--suave); }
+.pago .dato { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding: 10px 12px 10px 14px; border-radius: 14px; background: var(--papel); min-width: 0; }
+.pago .dato span { font-weight: 700; font-size: 15px; user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.pago .copy { background: var(--tinta); color: var(--blanco); }
+.pago .btn { margin-top: auto; padding: 11px 18px; font-size: 15px; }
 .note { text-align: center; font-size: 15px; color: var(--suave); margin-top: 24px; }
 @media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
 
@@ -368,6 +376,23 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
         </article>
       </div>
       <p class="note">Entrega en 3 a 5 días hábiles según el plan. Hacemos cualquier formato al mismo precio. ¿Otra duración? La cotizamos.</p>
+    </div>
+  </section>
+
+  <section id="pagos">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Pagos</div>
+        <h2>Paga como prefieras</h2>
+        <p>Cuando apruebes la propuesta te confirmamos el valor final. ¿Pagas desde fuera de Colombia? Escríbenos y te enviamos un link de PayPal.</p>
+      </div>
+      <div class="pagos">
+        <article class="pago">
+          <div class="name">Bold</div>
+          <p>Desde Colombia, con tarjeta, PSE, Nequi o Botón Bancolombia.</p>
+          <a class="btn dark" href="https://checkout.bold.co/payment/LNK_GCML0SS4PJ" target="_blank" rel="noopener">Pagar con Bold</a>
+        </article>
+      </div>
     </div>
   </section>
 
