@@ -6,13 +6,22 @@
 <link rel="icon" href="media/icono.png">
 <meta property="og:title" content="Clipedia Estudio">
 <meta property="og:description" content="Videos animados que explican lo que tu marca hace. Desde 20 USD, listos en 3 a 5 días hábiles.">
-<meta property="og:image" content="media/promo.jpg">
+<meta property="og:image" content="https://clipediastudio-oss.github.io/media/promo.jpg">
+<meta property="og:url" content="https://clipediastudio-oss.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://clipediastudio-oss.github.io/">
+<link rel="apple-touch-icon" href="media/icono.png">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clipedia","url":"https://clipediastudio-oss.github.io/","image":"https://clipediastudio-oss.github.io/media/promo.jpg","email":"clipedia.studio@gmail.com","description":"Videos animados que explican lo que tu marca hace, en cualquier formato.","areaServed":"Worldwide","priceRange":"20-150 USD","makesOffer":[{"@type":"Offer","name":"Clip explicativo","price":"20","priceCurrency":"USD"},{"@type":"Offer","name":"Video a fondo","price":"50","priceCurrency":"USD"},{"@type":"Offer","name":"Serie mensual","price":"150","priceCurrency":"USD"}]}</script>
 <style>[hidden]{display:none!important}img{max-width:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <title>Clipedia Estudio</title>
 <meta name="description" content="Clipedia: videos animados que explican lo que tu marca hace. Potenciados con IA, listos en 3 a 5 días hábiles, desde 20 USD.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&family=Kalam:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap">
 <style>
 /* Layout: página blanca de producto, titulares enormes centrados, tarjetas grandes de color que se mueven solas (muestrario tipo plantillas). */
 :root {
@@ -30,11 +39,11 @@
   --coral: #F08A6B;
   --arena: #EADFCB;
   --font: "Red Hat Display", "Helvetica Neue", Arial, sans-serif;
-  --hand: "Kalam", "Comic Sans MS", cursive;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+section, #videos { scroll-margin-top: 80px; }
 body { background: var(--blanco); color: var(--tinta); font-family: var(--font); font-size: 17px; line-height: 1.55; margin: 0; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--blanco); }
 a { color: inherit; }
@@ -47,6 +56,8 @@ p { margin: 0; }
 .btn.dark { background: var(--tinta); color: var(--blanco); }
 .btn.dark:hover { background: #2C3D45; transform: translateY(-2px); }
 .btn.ghost { background: transparent; color: var(--tinta); border-color: var(--linea); }
+.btn.light { background: var(--blanco); color: var(--tinta); border-color: var(--blanco); }
+.btn.light:hover { transform: translateY(-2px); }
 .btn.ghost:hover { border-color: var(--tinta); transform: translateY(-2px); }
 
 /* Cabecera */
@@ -263,6 +274,61 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
 .player .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; max-width: calc(min(82vh, 860px) * 9 / 16); }
 .player .bar b { font-weight: 700; font-size: 15px; }
 .close { all: unset; cursor: pointer; font-weight: 800; font-size: 14px; padding: 8px 16px; border-radius: 999px; background: var(--blanco); color: var(--tinta); }
+
+/* Formulario de cotización */
+.qf { border: none; padding: 0; margin: auto; width: min(560px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); border-radius: 28px; background: var(--blanco); color: var(--tinta); box-shadow: 0 40px 80px -30px rgba(15,22,26,0.6); }
+.qf::backdrop { background: rgba(15, 22, 26, 0.6); backdrop-filter: blur(6px); }
+.qf form { display: flex; flex-direction: column; max-height: calc(100dvh - 24px); }
+.qf-top { display: flex; align-items: center; gap: 12px; padding: 18px 20px 0; }
+.qf-back, .qf-x { all: unset; cursor: pointer; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 18px; font-weight: 800; color: var(--tinta); background: var(--papel); flex: none; }
+.qf-back[hidden] { display: grid !important; visibility: hidden; }
+.qf-back:focus-visible, .qf-x:focus-visible { outline: 2.5px solid var(--petroleo); outline-offset: 2px; }
+.qf-bar { flex: 1; height: 6px; border-radius: 3px; background: var(--linea); overflow: hidden; }
+.qf-bar i { display: block; height: 100%; width: 0; background: var(--turquesa); border-radius: 3px; transition: width .45s var(--ease); }
+.qf-body { padding: 22px 24px 26px; overflow-y: auto; }
+.qf-step { display: none; flex-direction: column; gap: 16px; }
+.qf-step.on { display: flex; animation: qfin .4s var(--ease); }
+@keyframes qfin { from { opacity: 0; transform: translateX(14px); } }
+.qf-n { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracota); font-variant-numeric: tabular-nums; }
+.qf h3 { font-size: clamp(24px, 4vw, 30px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.08; }
+.qf .hint { font-size: 14.5px; color: var(--suave); margin-top: -8px; }
+.opts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.opts.one { grid-template-columns: minmax(0, 1fr); }
+.opt { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border-radius: 16px; border: 1.5px solid var(--linea); background: var(--blanco); font-weight: 700; font-size: 15.5px; line-height: 1.25; transition: border-color .2s, background .2s, transform .2s var(--ease); min-width: 0; }
+.opt small { font-weight: 500; font-size: 13px; color: var(--suave); }
+.opt:hover { border-color: var(--tinta); }
+.opt:active { transform: scale(0.98); }
+.opt:focus-visible { outline: 2.5px solid var(--petroleo); outline-offset: 2px; }
+.opt[aria-pressed="true"] { border-color: var(--tinta); background: var(--papel); box-shadow: inset 0 0 0 1px var(--tinta); }
+.opt:has(.dot) { flex-direction: row; align-items: center; gap: 8px; }
+.opt .dot { margin: 0; }
+.qf label.f { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700; }
+.qf label.f span { font-weight: 500; color: var(--suave); }
+.qf input[type=text], .qf input[type=email], .qf input[type=tel], .qf textarea { font: inherit; font-size: 16px; font-weight: 500; color: var(--tinta); padding: 13px 15px; border-radius: 14px; border: 1.5px solid var(--linea); background: var(--blanco); width: 100%; box-sizing: border-box; }
+.qf textarea { resize: vertical; min-height: 76px; }
+.qf input:focus, .qf textarea:focus { outline: none; border-color: var(--petroleo); box-shadow: 0 0 0 3px rgba(31,99,120,0.15); }
+.qf .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--suave); line-height: 1.4; }
+.qf .consent input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--tinta); flex: none; }
+.qf .consent a { color: var(--tinta); font-weight: 700; }
+.qf .err { font-size: 13.5px; font-weight: 700; color: #B4432A; min-height: 1em; }
+.qf .send { width: 100%; }
+.qf .send[disabled] { opacity: .6; cursor: wait; }
+.qf .resumen { list-style: none; margin: 0; padding: 14px 16px; border-radius: 16px; background: var(--papel); display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.qf .resumen li { display: flex; justify-content: space-between; gap: 12px; }
+.qf .resumen li b { font-weight: 600; color: var(--suave); flex: none; }
+.qf .resumen li span { font-weight: 700; text-align: right; overflow-wrap: anywhere; }
+.qf .ok { text-align: center; align-items: center; padding-block: 18px; }
+.qf .ok .check { width: 64px; height: 64px; border-radius: 50%; background: var(--turquesa); display: grid; place-items: center; }
+.qf .ok .check svg { width: 30px; height: 30px; fill: none; stroke: var(--blanco); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.qf .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 520px) { .qf { width: 100vw; max-width: 100vw; max-height: 100dvh; height: 100dvh; border-radius: 0; } .qf form { max-height: 100dvh; height: 100%; } .qf-body { flex: 1; } }
+
+/* Aviso de privacidad */
+.priv { border: none; padding: 0; width: min(560px, calc(100vw - 24px)); border-radius: 24px; background: var(--blanco); color: var(--tinta); }
+.priv::backdrop { background: rgba(15, 22, 26, 0.6); }
+.priv > div { padding: 28px; display: flex; flex-direction: column; gap: 12px; font-size: 15px; }
+.priv h3 { font-size: 24px; font-weight: 900; }
+.priv p { color: var(--suave); }
 </style>
 
 </head>
@@ -285,7 +351,7 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
       <a href="#videos">Videos</a>
       <a href="#estilos">Estilos</a>
       <a href="#precios">Precios</a>
-      <a class="btn dark" href="#contacto">Pedir un video</a>
+      <a class="btn dark" href="#contacto" data-quote="">Pedir un video</a>
     </nav>
   </div>
 </header>
@@ -296,14 +362,14 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
       <h1>Tu idea, explicada <span class="squig">en <span class="ia">movimiento</span><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 6, 296 9"/></svg></span>.</h1>
       <p class="lead">Videos animados en cualquier formato, listos para tus redes. Tú nos cuentas la idea y nosotros la convertimos en un video que se entiende.</p>
       <div class="actions">
-        <a class="btn dark" href="#contacto">Cotiza tu video</a>
+        <a class="btn dark" href="#contacto" data-quote="">Cotiza tu video</a>
         <a class="btn ghost" href="#videos">Ver portafolio</a>
       </div>
       <div class="proof"><span>Desde 20 USD</span><span>3 a 5 días hábiles</span><span>10 estilos base</span><span>Cualquier formato, mismo precio</span></div>
     </div>
 
     <div class="showreel"><video src="media/promo.mp4" poster="media/promo.jpg" controls playsinline preload="metadata" aria-label="Video promocional de Clipedia"></video></div>
-    <p class="showreel-cap">Así trabajamos: 5 estilos en 56 segundos</p>
+    <p class="showreel-cap">Mira lo que podemos hacer por tu marca en 56 segundos</p>
 
     <div class="reel" id="videos" aria-label="Portafolio"></div>
   </div>
@@ -338,19 +404,19 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
         <div class="leg c05"><span class="dot"></span><div><b>Cinematográfico</b><small>Lanzamientos, anuncios y videos de producto</small></div></div>
       </div>
       <div class="style-grid">
-        <article class="style c01"><div class="stage s-glass" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><div class="pane"><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Glassmorfismo</h4><p>Para atraer clientes tecnológicos.</p></div></article>
-        <article class="style c01"><div class="stage s-ui" aria-hidden="true"><div class="win"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><span class="kpi">+48%</span></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Interfaces y datos</h4><p>Para mostrar productos digitales y cifras.</p></div></article>
-        <article class="style c02"><div class="stage" style="background:var(--petroleo)"><video data-src="media/e-min.mp4" poster="media/e-min.jpg" muted loop playsinline aria-label="Ejemplo de estilo minimalista"></video></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Minimalismo</h4><p>Para demostrar claridad y sofisticación.</p></div></article>
-        <article class="style c02"><div class="stage s-vec" aria-hidden="true"><span class="sun"></span><span class="hill h1"></span><span class="hill h2"></span><div class="doc"><i></i><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Ilustración vectorial editorial</h4><p>Para explicar temas complejos con orden.</p></div></article>
-        <article class="style c03"><div class="stage s-type" aria-hidden="true"><div class="grid4"><div class="cellt c1"><span>dí</span></div><div class="cellt c2"><span>lo<br>claro</span></div><div class="cellt c3"><span>sin<br>filtro</span></div><div class="cellt c4"><span>ya.</span></div></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Tipografía cinética</h4><p>Para mensajes comerciales y anuncios.</p></div></article>
-        <article class="style c03"><div class="stage s-brut" aria-hidden="true"><span class="tag">[ 001 / CLIPEDIA ]</span><div class="box">Sin<br>miedo</div><div class="tape"><span>DESTACA — DIFERÉNCIATE — DESTACA — DIFERÉNCIATE — DESTACA —</span></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Brutalismo digital</h4><p>Para mostrar personalidad y diferenciación.</p></div></article>
-        <article class="style c04"><div class="stage s-line" aria-hidden="true"><svg viewBox="0 0 200 200"><path class="tr" pathLength="1" d="M100 46 C 74 46, 62 66, 64 84 C 66 102, 82 110, 84 124 L 116 124 C 118 110, 134 102, 136 84 C 138 66, 126 46, 100 46 Z"/><path class="tr d2" pathLength="1" d="M86 136 L 114 136 M 90 146 L 110 146"/><path class="tr ac d3" pathLength="1" d="M38 160 C 52 150, 58 168, 72 158 M 150 38 l 8 -8 M 160 56 l 11 -2 M 140 28 l 2 -11"/></svg></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Trazos animados</h4><p>Para probar capacidad explicativa.</p></div></article>
-        <article class="style c04"><div class="stage" style="background:var(--arena)"><video data-src="media/e-col.mp4" poster="media/e-col.jpg" muted loop playsinline aria-label="Ejemplo de estilo collage editorial"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Collage editorial</h4><p>Con textura y humor, para contar historias.</p></div></article>
-        <article class="style c04"><div class="stage" style="background:#F3D9CC"><video data-src="media/e-clay.mp4" poster="media/e-clay.jpg" muted loop playsinline aria-label="Ejemplo de estilo plastilina"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Plastilina</h4><p>Suave y cercano, para temas humanos.</p></div></article>
-        <article class="style c05"><div class="stage s-3d" aria-hidden="true"><span class="floor"></span><span class="sph sp1"></span><span class="ring"></span><span class="sph sp2"></span><span class="sph sp3"></span></div><div><span class="cat-tag"><span class="dot"></span>Cinematográfico</span><h4>3D abstracto</h4><p>Para elevar la percepción de producción.</p></div></article>
+        <article class="style c01"><div class="stage s-glass" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><div class="pane"><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Glassmorfismo</h4><p>Moderno y luminoso, ideal para marcas de tecnología.</p></div></article>
+        <article class="style c01"><div class="stage s-ui" aria-hidden="true"><div class="win"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><span class="kpi">+48%</span></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Interfaces y datos</h4><p>Tu producto digital y tus cifras, claros a la primera.</p></div></article>
+        <article class="style c02"><div class="stage" style="background:var(--petroleo)"><video data-src="media/e-min.mp4" poster="media/e-min.jpg" muted loop playsinline aria-label="Ejemplo de estilo minimalista"></video></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Minimalismo</h4><p>Claro y sofisticado: solo lo esencial.</p></div></article>
+        <article class="style c02"><div class="stage s-vec" aria-hidden="true"><span class="sun"></span><span class="hill h1"></span><span class="hill h2"></span><div class="doc"><i></i><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Ilustración vectorial editorial</h4><p>Temas complejos explicados con orden y calidez.</p></div></article>
+        <article class="style c03"><div class="stage s-type" aria-hidden="true"><div class="grid4"><div class="cellt c1"><span>dí</span></div><div class="cellt c2"><span>lo<br>claro</span></div><div class="cellt c3"><span>sin<br>filtro</span></div><div class="cellt c4"><span>ya.</span></div></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Tipografía cinética</h4><p>Tu mensaje en grande, perfecto para anuncios.</p></div></article>
+        <article class="style c03"><div class="stage s-brut" aria-hidden="true"><span class="tag">[ 001 / CLIPEDIA ]</span><div class="box">Sin<br>miedo</div><div class="tape"><span>DESTACA — DIFERÉNCIATE — DESTACA — DIFERÉNCIATE — DESTACA —</span></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Brutalismo digital</h4><p>Atrevido y diferente, para que tu marca no pase desapercibida.</p></div></article>
+        <article class="style c04"><div class="stage s-line" aria-hidden="true"><svg viewBox="0 0 200 200"><path class="tr" pathLength="1" d="M100 46 C 74 46, 62 66, 64 84 C 66 102, 82 110, 84 124 L 116 124 C 118 110, 134 102, 136 84 C 138 66, 126 46, 100 46 Z"/><path class="tr d2" pathLength="1" d="M86 136 L 114 136 M 90 146 L 110 146"/><path class="tr ac d3" pathLength="1" d="M38 160 C 52 150, 58 168, 72 158 M 150 38 l 8 -8 M 160 56 l 11 -2 M 140 28 l 2 -11"/></svg></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Trazos animados</h4><p>Ideas que se dibujan frente a tus ojos.</p></div></article>
+        <article class="style c04"><div class="stage" style="background:var(--arena)"><video data-src="media/e-col.mp4" poster="media/e-col.jpg" muted loop playsinline aria-label="Ejemplo de estilo collage editorial"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Collage editorial</h4><p>Textura y humor para contar historias con personalidad.</p></div></article>
+        <article class="style c04"><div class="stage" style="background:#F3D9CC"><video data-src="media/e-clay.mp4" poster="media/e-clay.jpg" muted loop playsinline aria-label="Ejemplo de estilo plastilina"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Plastilina</h4><p>Suave y cercano, ideal para temas humanos.</p></div></article>
+        <article class="style c05"><div class="stage s-3d" aria-hidden="true"><span class="floor"></span><span class="sph sp1"></span><span class="ring"></span><span class="sph sp2"></span><span class="sph sp3"></span></div><div><span class="cat-tag"><span class="dot"></span>Cinematográfico</span><h4>3D abstracto</h4><p>Acabado de alto nivel que eleva tu marca.</p></div></article>
       </div>
       <p class="estilos-cierre">Tenemos diez estilos base, y también podemos <span>personalizar uno para ti</span>.</p>
-      <div class="estilos-cta"><a class="btn dark" href="#contacto">Cuéntanos tu idea</a></div>
+      <div class="estilos-cta"><a class="btn dark" href="#contacto" data-quote="">Cuéntanos tu idea</a></div>
     </div>
   </section>
 
@@ -367,7 +433,7 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
           <div class="len">Hasta 60 segundos</div>
           <div class="price">20 USD<small> desde</small></div>
           <ul><li>Una idea central, de principio a fin</li><li>Guion y animación a la medida</li><li>Una ronda de cambios</li></ul>
-          <a class="btn ghost" href="#contacto">Lo quiero</a>
+          <a class="btn ghost" href="#contacto" data-quote="Clip">Lo quiero</a>
         </article>
         <article class="plan feat">
           <div class="tag">El más pedido</div>
@@ -375,14 +441,14 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
           <div class="len">De 2 a 3 minutos</div>
           <div class="price">50 USD<small> por video</small></div>
           <ul><li>Investigación con fuentes citadas</li><li>Storyboard aprobado antes de animar</li><li>Voz en off y diseño sonoro</li><li>Dos rondas de cambios</li></ul>
-          <a class="btn dark" href="#contacto">Lo quiero</a>
+          <a class="btn dark" href="#contacto" data-quote="Video a fondo">Lo quiero</a>
         </article>
         <article class="plan">
           <div class="name">Serie mensual</div>
           <div class="len">4 videos al mes</div>
           <div class="price">150 USD<small> al mes</small></div>
           <ul><li>Calendario de temas para tu marca</li><li>Estilo de serie propio</li><li>Portadas para tu perfil</li></ul>
-          <a class="btn ghost" href="#contacto">Hablemos</a>
+          <a class="btn ghost" href="#contacto" data-quote="Serie">Lo quiero</a>
         </article>
       </div>
       <p class="note">Entrega en 3 a 5 días hábiles según el plan. Hacemos cualquier formato al mismo precio. ¿Otra duración? La cotizamos.</p>
@@ -394,7 +460,7 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
       <div class="head">
         <div class="eyebrow">Pagos</div>
         <h2>Paga como prefieras</h2>
-        <p>Cuando apruebes la propuesta te confirmamos el valor final. Paga desde Colombia con Bre-B o Bold, o desde cualquier país con PayPal.</p>
+        <p>Primero te enviamos la cotización y, cuando la apruebes, pagas por el medio que prefieras: Bre-B o Bold desde Colombia, o PayPal desde cualquier país.</p>
       </div>
       <div class="pagos">
         <article class="pago">
@@ -405,7 +471,7 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
         <article class="pago">
           <div class="name">Bold</div>
           <p>Desde Colombia, con tarjeta, PSE, Nequi o Botón Bancolombia.</p>
-          <a class="btn dark" href="https://checkout.bold.co/payment/LNK_GCML0SS4PJ" target="_blank" rel="noopener">Pagar con Bold</a>
+          <a class="btn dark" href="https://checkout.bold.co/payment/LNK_GCML0SS4PJ" target="_blank" rel="noopener noreferrer">Pagar con Bold</a>
         </article>
         <article class="pago">
           <div class="name">PayPal</div>
@@ -436,12 +502,13 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
       <div class="final">
         <div>
           <h2>¿Qué quieres explicar?</h2>
-          <p class="lead">Escríbenos y te respondemos con una idea de enfoque y una cotización.</p>
+          <p class="lead">Responde unas preguntas rápidas, casi todo con botones, y te enviamos tu cotización.</p>
+          <a class="btn light" href="#contacto" data-quote="" style="margin-top:24px">Pedir mi cotización</a>
         </div>
         <div class="channels">
           <div class="channel"><div><small>Correo</small><span id="mail">clipedia.studio@gmail.com</span></div><button class="copy" type="button" data-copy="mail">Copiar</button></div>
-          <div class="channel"><div><small>Instagram</small><a href="https://www.instagram.com/clipedia" target="_blank" rel="noopener"><span>@clipedia</span></a></div></div>
-          <div class="channel"><div><small>TikTok</small><a href="https://www.tiktok.com/@clipedia" target="_blank" rel="noopener"><span>@clipedia</span></a></div></div>
+          <div class="channel"><div><small>Instagram</small><a href="https://www.instagram.com/clipedia" target="_blank" rel="noopener noreferrer"><span>@clipedia</span></a></div></div>
+          <div class="channel"><div><small>TikTok</small><a href="https://www.tiktok.com/@clipedia" target="_blank" rel="noopener noreferrer"><span>@clipedia</span></a></div></div>
         </div>
       </div>
     </div>
@@ -450,11 +517,141 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Clipedia · La enciclopedia que se mira</span>
-    <span>Videos animados, potenciados con IA</span>
+    <span>© 2026 Clipedia · Lo que haces, explicado en un clip.</span>
+    <span>Videos animados, potenciados con IA · <a href="#" data-priv>Aviso de privacidad</a></span>
   </div>
 </footer>
 
+<dialog class="qf" id="qf" aria-labelledby="qf-title">
+  <form id="qform" novalidate>
+    <div class="qf-top">
+      <button type="button" class="qf-back" id="qf-back" aria-label="Volver">‹</button>
+      <div class="qf-bar" aria-hidden="true"><i id="qf-bar"></i></div>
+      <button type="button" class="qf-x" id="qf-x" aria-label="Cerrar">×</button>
+    </div>
+    <div class="qf-body" id="qf-body">
+      <div class="qf-step on" data-key="plan">
+        <div class="qf-n" id="qf-title">Cotiza tu video</div>
+        <h3>¿Qué tipo de video necesitas?</h3>
+        <div class="opts one">
+          <button type="button" class="opt" data-v="Clip explicativo (hasta 60 s)">Clip explicativo<small>Hasta 60 segundos · desde 20 USD</small></button>
+          <button type="button" class="opt" data-v="Video a fondo (2 a 3 min)">Video a fondo<small>De 2 a 3 minutos · 50 USD</small></button>
+          <button type="button" class="opt" data-v="Serie mensual (4 videos)">Serie mensual<small>4 videos al mes · 150 USD</small></button>
+          <button type="button" class="opt" data-v="Aún no sé">Aún no sé<small>Te recomendamos el ideal para ti</small></button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="formato">
+        <div class="qf-n">Paso 2</div>
+        <h3>¿En qué formato?</h3>
+        <p class="hint">Todos cuestan lo mismo.</p>
+        <div class="opts">
+          <button type="button" class="opt" data-v="Vertical 9:16">Vertical<small>TikTok, Reels, Shorts</small></button>
+          <button type="button" class="opt" data-v="Horizontal 16:9">Horizontal<small>YouTube, web</small></button>
+          <button type="button" class="opt" data-v="Cuadrado 1:1">Cuadrado<small>Feed de Instagram</small></button>
+          <button type="button" class="opt" data-v="Varios formatos">Varios<small>Te lo entregamos en más de uno</small></button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="uso">
+        <div class="qf-n">Paso 3</div>
+        <h3>¿Para qué lo vas a usar?</h3>
+        <div class="opts">
+          <button type="button" class="opt" data-v="Contenido para redes">Contenido para redes</button>
+          <button type="button" class="opt" data-v="Anuncio pagado">Anuncio pagado</button>
+          <button type="button" class="opt" data-v="Lanzamiento de producto">Lanzamiento de producto</button>
+          <button type="button" class="opt" data-v="Web o presentación">Web o presentación</button>
+          <button type="button" class="opt" data-v="Curso o clase">Curso o clase</button>
+          <button type="button" class="opt" data-v="Otro uso">Otro</button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="sector">
+        <div class="qf-n">Paso 4</div>
+        <h3>¿A qué se dedica tu marca?</h3>
+        <div class="opts">
+          <button type="button" class="opt" data-v="Tecnología o startup">Tecnología o startup</button>
+          <button type="button" class="opt" data-v="Educación">Educación</button>
+          <button type="button" class="opt" data-v="Salud y bienestar">Salud y bienestar</button>
+          <button type="button" class="opt" data-v="Marca de consumo">Marca de consumo</button>
+          <button type="button" class="opt" data-v="Consultoría o servicios">Consultoría o servicios</button>
+          <button type="button" class="opt" data-v="Cultura o entretenimiento">Cultura o entretenimiento</button>
+          <button type="button" class="opt" data-v="Creador de contenido">Creador de contenido</button>
+          <button type="button" class="opt" data-v="Otro sector">Otro</button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="estilo">
+        <div class="qf-n">Paso 5</div>
+        <h3>¿Qué estilo te gusta más?</h3>
+        <div class="opts">
+          <button type="button" class="opt c05" data-v="Recomiéndenme uno" style="grid-column:1/-1">Recomiéndenme uno<small>Elegimos el que mejor le va a tu marca</small></button>
+          <button type="button" class="opt c01" data-v="Glassmorfismo"><span class="dot"></span>Glassmorfismo</button>
+          <button type="button" class="opt c01" data-v="Interfaces y datos"><span class="dot"></span>Interfaces y datos</button>
+          <button type="button" class="opt c02" data-v="Minimalismo"><span class="dot"></span>Minimalismo</button>
+          <button type="button" class="opt c02" data-v="Ilustración vectorial editorial"><span class="dot"></span>Vectorial editorial</button>
+          <button type="button" class="opt c03" data-v="Tipografía cinética"><span class="dot"></span>Tipografía cinética</button>
+          <button type="button" class="opt c03" data-v="Brutalismo digital"><span class="dot"></span>Brutalismo digital</button>
+          <button type="button" class="opt c04" data-v="Trazos animados"><span class="dot"></span>Trazos animados</button>
+          <button type="button" class="opt c04" data-v="Collage editorial"><span class="dot"></span>Collage editorial</button>
+          <button type="button" class="opt c04" data-v="Plastilina"><span class="dot"></span>Plastilina</button>
+          <button type="button" class="opt c05" data-v="3D abstracto"><span class="dot"></span>3D abstracto</button>
+          <button type="button" class="opt c05" data-v="Personalizado" style="grid-column:1/-1">Uno personalizado<small>Lo creamos para tu marca</small></button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="voz">
+        <div class="qf-n">Paso 6</div>
+        <h3>¿Qué voz lleva?</h3>
+        <div class="opts one">
+          <button type="button" class="opt" data-v="Voz en off de Clipedia">Voz en off de Clipedia<small>La ponemos nosotros</small></button>
+          <button type="button" class="opt" data-v="Mi propia voz">Mi propia voz<small>Nos envías tu audio grabado</small></button>
+          <button type="button" class="opt" data-v="Sin voz, solo música y texto">Sin voz<small>Solo música y texto en pantalla</small></button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="marca">
+        <div class="qf-n">Paso 7</div>
+        <h3>¿Tienes logo y colores de marca?</h3>
+        <div class="opts one">
+          <button type="button" class="opt" data-v="Sí, los envío">Sí, los tengo<small>Te los pedimos al responder</small></button>
+          <button type="button" class="opt" data-v="No, propónganlos">No, propónganlos ustedes</button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="fecha">
+        <div class="qf-n">Paso 8</div>
+        <h3>¿Para cuándo lo necesitas?</h3>
+        <div class="opts">
+          <button type="button" class="opt" data-v="Lo antes posible">Lo antes posible</button>
+          <button type="button" class="opt" data-v="En una semana">En una semana</button>
+          <button type="button" class="opt" data-v="En dos semanas">En dos semanas</button>
+          <button type="button" class="opt" data-v="Sin fecha fija">Sin fecha fija</button>
+        </div>
+      </div>
+      <div class="qf-step" data-key="contacto">
+        <div class="qf-n">Último paso</div>
+        <h3>¿A dónde te enviamos la cotización?</h3>
+        <label class="f">Nombre<input type="text" name="nombre" autocomplete="name" required maxlength="80"></label>
+        <label class="f">Correo<input type="email" name="correo" autocomplete="email" required maxlength="120" inputmode="email"></label>
+        <label class="f"><div>WhatsApp <span>(opcional)</span></div><input type="tel" name="whatsapp" autocomplete="tel" maxlength="25" inputmode="tel" placeholder="+57 300 000 0000"></label>
+        <label class="f"><div>Tu idea en una frase <span>(opcional)</span></div><textarea name="idea" maxlength="600" rows="2" placeholder="Ej.: explicar cómo funciona nuestra app de ahorro"></textarea></label>
+        <div class="trampa" aria-hidden="true"><label>No llenar<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+        <label class="consent"><input type="checkbox" name="autorizo" required><span>Autorizo a Clipedia a usar mis datos solo para responder esta solicitud. <a href="#" data-priv>Aviso de privacidad</a></span></label>
+        <ul class="resumen" id="qf-resumen"></ul>
+        <p class="err" id="qf-err" role="alert"></p>
+        <button type="submit" class="btn dark send" id="qf-send">Pedir mi cotización</button>
+      </div>
+      <div class="qf-step ok" data-key="ok">
+        <div class="check"><svg viewBox="0 0 24 24"><path d="M5 12.5 L10 17.5 L19 7.5"/></svg></div>
+        <h3>¡Listo, recibimos tu solicitud!</h3>
+        <p class="hint" style="margin-top:0">Te responderemos por correo con tu cotización. Revisa también la carpeta de spam.</p>
+        <button type="button" class="btn ghost" id="qf-fin">Volver a la página</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="priv" id="priv" aria-labelledby="priv-t">
+  <div>
+    <h3 id="priv-t">Aviso de privacidad</h3>
+    <p>Clipedia usa tu nombre, correo, WhatsApp y las respuestas de este formulario solo para enviarte una cotización y hablar contigo sobre tu video. No vendemos ni compartimos tus datos con terceros, salvo el servicio que entrega el formulario a nuestro correo.</p>
+    <p>Puedes pedir que corrijamos o borremos tus datos cuando quieras escribiendo a clipedia.studio@gmail.com, según la Ley 1581 de 2012 de Colombia.</p>
+    <button type="button" class="btn dark" id="priv-x" style="align-self:flex-start">Entendido</button>
+  </div>
+</dialog>
 <dialog id="dlg" aria-label="Reproductor de video">
   <div class="player">
     <video id="pv" controls playsinline preload="metadata"></video>
@@ -478,8 +675,8 @@ VIDEOS.forEach(v => {
   const b = document.createElement("button");
   b.className = "card"; b.type = "button";
   b.setAttribute("aria-label", "Ver " + v.t);
-  const loop = still ? "" : `<video src="media/l${v.id}.mp4" poster="media/v${v.id}.jpg" muted loop playsinline autoplay preload="auto"></video>`;
-  b.innerHTML = `<div class="frame"><img src="media/v${v.id}.jpg" alt="">${loop}<span class="dur">${v.dur}</span></div>
+  const loop = still ? "" : `<video data-src="media/l${v.id}.mp4" poster="media/v${v.id}.jpg" muted loop playsinline preload="none"></video>`;
+  b.innerHTML = `<div class="frame"><img src="media/v${v.id}.jpg" alt="" loading="lazy">${loop}<span class="dur">${v.dur}</span></div>
     <div class="meta"><h3>${v.t}</h3><span class="open">Ver ›</span></div>`;
   b.addEventListener("click", () => {
     pv.src = `media/v${v.id}.mp4`; pv.poster = `media/v${v.id}.jpg`; pt.textContent = v.t;
@@ -492,7 +689,7 @@ document.getElementById("pc").addEventListener("click", closeDlg);
 dlg.addEventListener("click", e => { if (e.target === dlg) closeDlg(); });
 dlg.addEventListener("close", () => pv.pause());
 
-document.querySelectorAll(".style video[data-src]").forEach(v => {
+document.querySelectorAll(".style video[data-src], .card video[data-src]").forEach(v => {
   if (still) return;
   new IntersectionObserver((es) => es.forEach(e => {
     if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
@@ -504,11 +701,84 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
   if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(() => selectText(el));
   else selectText(el);
 }));
+// Formulario de cotización: un paso por pregunta, avanza al tocar una opción.
+(() => {
+  const qf = document.getElementById("qf"), form = document.getElementById("qform");
+  const steps = [...qf.querySelectorAll(".qf-step")], bar = document.getElementById("qf-bar");
+  const back = document.getElementById("qf-back"), err = document.getElementById("qf-err"), send = document.getElementById("qf-send");
+  const ENDPOINT = "https://formsubmit.co/ajax/clipedia.studio@gmail.com";
+  const LABELS = { plan: "Video", formato: "Formato", uso: "Uso", sector: "Sector", estilo: "Estilo", voz: "Voz", marca: "Logo y colores", fecha: "Para cuándo" };
+  let answers = {}, cur = 0, opened = 0;
+  const last = steps.length - 2;
+
+  function show(i) {
+    steps[cur].classList.remove("on"); cur = i; steps[cur].classList.add("on");
+    bar.style.width = Math.round((Math.min(i, last + 1) / (last + 1)) * 100) + "%";
+    back.hidden = i === 0 || i > last;
+    document.getElementById("qf-body").scrollTop = 0;
+    if (i === last) renderResumen();
+    const focusable = steps[cur].querySelector('.opt[aria-pressed="true"], .opt, input, button');
+    if (focusable && matchMedia("(hover: hover)").matches) focusable.focus({ preventScroll: true });
+  }
+  function renderResumen() {
+    const ul = document.getElementById("qf-resumen"); ul.textContent = "";
+    Object.keys(LABELS).forEach(k => { if (!answers[k]) return;
+      const li = document.createElement("li"), b = document.createElement("b"), s = document.createElement("span");
+      b.textContent = LABELS[k]; s.textContent = answers[k]; li.append(b, s); ul.append(li); });
+  }
+  function open(plan) {
+    answers = {}; form.reset(); err.textContent = "";
+    qf.querySelectorAll(".opt").forEach(o => o.setAttribute("aria-pressed", "false"));
+    steps.forEach(s => s.classList.remove("on")); cur = 0; steps[0].classList.add("on");
+    let start = 0;
+    if (plan) { const o = steps[0].querySelector(`.opt[data-v^="${plan}"]`); if (o) { o.setAttribute("aria-pressed", "true"); answers.plan = o.dataset.v; start = 1; } }
+    opened = Date.now(); qf.showModal(); show(start);
+  }
+  qf.querySelectorAll(".opt").forEach(o => o.addEventListener("click", () => {
+    const step = o.closest(".qf-step");
+    step.querySelectorAll(".opt").forEach(x => x.setAttribute("aria-pressed", String(x === o)));
+    answers[step.dataset.key] = o.dataset.v;
+    setTimeout(() => show(steps.indexOf(step) + 1), 180);
+  }));
+  back.addEventListener("click", () => { if (cur > 0) show(cur - 1); });
+  document.getElementById("qf-x").addEventListener("click", () => qf.close());
+  document.getElementById("qf-fin").addEventListener("click", () => qf.close());
+  qf.addEventListener("click", e => { if (e.target === qf) qf.close(); });
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault(); err.textContent = "";
+    const d = new FormData(form), nombre = (d.get("nombre") || "").trim(), correo = (d.get("correo") || "").trim();
+    if (!nombre) { err.textContent = "Escribe tu nombre."; form.nombre.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo)) { err.textContent = "Revisa tu correo, parece incompleto."; form.correo.focus(); return; }
+    if (!d.get("autorizo")) { err.textContent = "Marca la autorización para poder responderte."; return; }
+    if (d.get("_honey") || Date.now() - opened < 4000) { show(last + 1); return; } // bots: fingimos éxito
+    const payload = { _subject: `Nueva solicitud de cotización: ${nombre}`, _template: "table", _replyto: correo,
+      Nombre: nombre, Correo: correo, WhatsApp: (d.get("whatsapp") || "").trim() || "No lo dejó" };
+    Object.keys(LABELS).forEach(k => payload[LABELS[k]] = answers[k] || "Sin responder");
+    payload.Idea = (d.get("idea") || "").trim() || "No la escribió";
+    send.disabled = true; send.textContent = "Enviando…";
+    try {
+      const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) !== "true") throw new Error(j.message || r.status);
+      show(last + 1);
+    } catch (_) {
+      const body = Object.entries(payload).filter(([k]) => !k.startsWith("_")).map(([k, v]) => `${k}: ${v}`).join("\n");
+      err.innerHTML = "";
+      err.append("No pudimos enviarla. ");
+      const a = document.createElement("a"); a.textContent = "Envíala por correo aquí";
+      a.href = "mailto:clipedia.studio@gmail.com?subject=" + encodeURIComponent("Solicitud de cotización") + "&body=" + encodeURIComponent(body);
+      err.append(a, ".");
+    } finally { send.disabled = false; send.textContent = "Pedir mi cotización"; }
+  });
+
+  document.querySelectorAll("[data-quote]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); open(a.dataset.quote); }));
+  const priv = document.getElementById("priv");
+  document.querySelectorAll("[data-priv]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); priv.showModal(); }));
+  document.getElementById("priv-x").addEventListener("click", () => priv.close());
+})();
 function selectText(el) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=BAApgo9K9_pNYyXXHLTyZDU8rnhf1HaGKh3AhKBEuZBtl1wSm3RKfDf_z73ZX9np_1iojZNHdnGCoZ4woc&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
-<script>
-  if (window.paypal) paypal.HostedButtons({ hostedButtonId: "MWRNHHWS4HDHG" }).render("#paypal-container-MWRNHHWS4HDHG");
-</script>
+<script async onload="paypal.HostedButtons({ hostedButtonId: 'MWRNHHWS4HDHG' }).render('#paypal-container-MWRNHHWS4HDHG')" src="https://www.paypal.com/sdk/js?client-id=BAApgo9K9_pNYyXXHLTyZDU8rnhf1HaGKh3AhKBEuZBtl1wSm3RKfDf_z73ZX9np_1iojZNHdnGCoZ4woc&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 </body>
 </html>
