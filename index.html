@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="media/icono.png">
+<meta property="og:title" content="Clipedia Estudio">
+<meta property="og:description" content="Videos animados que explican lo que tu marca hace. Desde 20 USD, listos en 3 a 5 días hábiles.">
+<meta property="og:image" content="media/promo.jpg">
+<style>[hidden]{display:none!important}img{max-width:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Clipedia Estudio</title>
+<meta name="description" content="Clipedia: videos animados que explican lo que tu marca hace. Potenciados con IA, listos en 3 a 5 días hábiles, desde 20 USD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&family=Kalam:wght@700&display=swap">
+<style>
+/* Layout: página blanca de producto, titulares enormes centrados, tarjetas grandes de color que se mueven solas (muestrario tipo plantillas). */
+:root {
+  color-scheme: light;
+  --blanco: #FFFFFF;
+  --papel: #F6F4F0;
+  --tinta: #1E2A30;
+  --suave: #5C6B70;
+  --linea: #E6E9E8;
+  --petroleo: #1F6378;
+  --bosque: #2F5546;
+  --terracota: #D2643F;
+  --turquesa: #49BFB5;
+  --mostaza: #E3A93B;
+  --coral: #F08A6B;
+  --arena: #EADFCB;
+  --font: "Red Hat Display", "Helvetica Neue", Arial, sans-serif;
+  --hand: "Kalam", "Comic Sans MS", cursive;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--blanco); color: var(--tinta); font-family: var(--font); font-size: 17px; line-height: 1.55; margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--blanco); }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; margin: 0; letter-spacing: -0.04em; }
+p { margin: 0; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+:focus-visible { outline: 2.5px solid var(--petroleo); outline-offset: 3px; border-radius: 10px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-family: inherit; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px; border: 1.5px solid var(--tinta); cursor: pointer; transition: transform .35s var(--ease), background .35s var(--ease); }
+.btn.dark { background: var(--tinta); color: var(--blanco); }
+.btn.dark:hover { background: #2C3D45; transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--tinta); border-color: var(--linea); }
+.btn.ghost:hover { border-color: var(--tinta); transform: translateY(-2px); }
+
+/* Cabecera */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(255,255,255,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { display: flex; align-items: center; gap: 9px; text-decoration: none; font-weight: 900; font-size: 25px; letter-spacing: -0.045em; }
+.brand svg { width: 30px; height: 30px; flex: none; }
+.nav { display: flex; align-items: center; gap: 26px; font-size: 15px; font-weight: 600; }
+.nav a { text-decoration: none; color: var(--suave); }
+.nav a:hover { color: var(--tinta); }
+.nav .btn { padding: 9px 18px; font-size: 14px; color: var(--blanco); }
+@media (max-width: 680px) { .nav a:not(.btn) { display: none; } }
+
+.banner { background: var(--papel); text-align: center; font-size: 14px; font-weight: 600; padding-block: 9px; }
+.banner b { color: var(--terracota); }
+
+/* Portada */
+.hero { text-align: center; padding-block: clamp(56px, 9vw, 112px) clamp(36px, 5vw, 56px); display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.hero h1 { font-size: clamp(46px, 9vw, 112px); font-weight: 900; line-height: 1.04; letter-spacing: -0.055em; max-width: 12ch; }
+.hero h1 .ia { color: var(--terracota); }
+.hero h1 .squig { position: relative; white-space: nowrap; }
+.hero h1 .squig svg { position: absolute; left: -2%; bottom: -0.04em; width: 104%; height: 0.26em; overflow: visible; }
+.hero h1 .squig path { fill: none; stroke: var(--turquesa); stroke-width: 6; stroke-linecap: round; }
+.hero .lead { font-size: clamp(18px, 2.2vw, 22px); color: var(--suave); max-width: 46ch; }
+.hero .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.proof { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; font-size: 14px; font-weight: 600; color: var(--suave); }
+.proof span { display: inline-flex; align-items: center; gap: 7px; }
+.proof span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mostaza); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 .squig path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.4s var(--ease) .5s forwards; }
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* Video promocional (16:9) */
+.showreel { position: relative; margin: 0 auto clamp(40px, 6vw, 72px); max-width: 1040px; border-radius: 28px; overflow: hidden; background: var(--petroleo); box-shadow: 0 30px 60px -30px rgba(30,42,48,0.45); }
+.showreel video { display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: var(--petroleo); }
+.showreel-cap { text-align: center; font-size: 14px; font-weight: 600; color: var(--suave); margin: -48px 0 clamp(48px, 7vw, 80px); }
+
+/* Muestrario de videos */
+.reel { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; padding-bottom: clamp(56px, 8vw, 96px); }
+.card { all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card .frame { position: relative; aspect-ratio: 9 / 16; max-width: 100%; border-radius: 24px; overflow: hidden; background: var(--tinta); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.card img, .card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.card .dur { position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.92); color: var(--tinta); font-variant-numeric: tabular-nums; }
+.card:hover .frame, .card:focus-visible .frame { transform: translateY(-6px) rotate(-0.6deg); box-shadow: 0 24px 40px -22px rgba(30,42,48,0.45); }
+.card .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.card h3 { font-size: 16px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25; }
+.card .open { font-size: 13px; font-weight: 700; color: var(--petroleo); white-space: nowrap; }
+@media (max-width: 900px) { .reel { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); } }
+
+/* Secciones */
+section { padding-block: clamp(64px, 9vw, 120px); }
+section.paper { background: var(--papel); }
+.head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: clamp(36px, 5vw, 60px); }
+.head h2 { font-size: clamp(36px, 6vw, 72px); font-weight: 900; line-height: 0.98; max-width: 14ch; }
+.head p { color: var(--suave); font-size: 18px; max-width: 52ch; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracota); }
+
+/* Por qué */
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.why article { background: var(--blanco); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 12px; }
+.why .big { font-size: clamp(44px, 5vw, 64px); font-weight: 900; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.why h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
+.why p { color: var(--suave); font-size: 16px; }
+@media (max-width: 860px) { .why { grid-template-columns: 1fr; } }
+
+/* Estilos */
+.styles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.style { border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; grid-column: span 2; }
+.style.wide { grid-column: span 3; }
+.style .stage { position: relative; height: 230px; overflow: hidden; }
+.style .info { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 4px; }
+.style .n { font-size: 13px; font-weight: 700; opacity: 0.7; font-variant-numeric: tabular-nums; }
+.style h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; }
+.style p { font-size: 15px; opacity: 0.8; }
+@media (max-width: 860px) { .styles { grid-template-columns: 1fr; } .style, .style.wide { grid-column: auto; } }
+
+/* 1 Minimalista */
+.s-min { background: var(--petroleo); color: var(--blanco); }
+.s-min svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.s-min .ln { fill: none; stroke: rgba(255,255,255,0.85); stroke-width: 1.6; stroke-linecap: round; }
+.s-min .glass { fill: rgba(255,255,255,0.06); stroke: rgba(255,255,255,0.18); stroke-width: 1; }
+.s-min .coin { fill: var(--mostaza); filter: drop-shadow(0 0 8px rgba(227,169,59,0.8)); transform: translate(190px, 61px); }
+/* 2 Collage */
+.s-col { background: var(--arena); color: var(--tinta); }
+.s-col .stage { background-image: radial-gradient(rgba(30,42,48,0.06) 1px, transparent 1px); background-size: 6px 6px; }
+.paper-cut { position: absolute; padding: 10px 14px; font-weight: 900; letter-spacing: -0.03em; box-shadow: 0 6px 14px -6px rgba(0,0,0,0.35); }
+.paper-cut::after { content: ""; position: absolute; top: -9px; left: 50%; width: 46px; height: 18px; margin-left: -23px; background: rgba(255,255,255,0.6); transform: rotate(-4deg); }
+.pc1 { left: 8%; top: 22%; background: var(--terracota); color: var(--blanco); font-size: 34px; transform: rotate(-6deg); clip-path: polygon(0 4%, 100% 0, 97% 100%, 3% 94%); }
+.pc2 { left: 40%; top: 46%; background: var(--blanco); font-size: 26px; transform: rotate(4deg); clip-path: polygon(2% 0, 100% 6%, 98% 96%, 0 100%); }
+.pc3 { right: 8%; top: 14%; width: 74px; height: 74px; border-radius: 50%; background: var(--bosque); padding: 0; }
+.pc3::after { display: none; }
+.pc4 { left: 14%; bottom: 12%; background: var(--mostaza); font-size: 18px; transform: rotate(-2deg); clip-path: polygon(0 0, 100% 8%, 96% 100%, 4% 92%); }
+/* 3 Pop art */
+.s-pop { background: var(--mostaza); color: var(--tinta); }
+.s-pop .stage { background: repeating-conic-gradient(from 0deg at 50% 55%, var(--coral) 0deg 10deg, var(--mostaza) 10deg 20deg); }
+.s-pop .stage::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(var(--terracota) 2.2px, transparent 2.6px); background-size: 12px 12px; mix-blend-mode: multiply; opacity: 0.35; }
+.burst { position: absolute; left: 50%; top: 55%; width: 190px; height: 130px; margin: -65px 0 0 -95px; background: var(--blanco); border: 4px solid var(--tinta); clip-path: polygon(50% 0, 61% 22%, 88% 6%, 80% 34%, 100% 46%, 78% 60%, 92% 92%, 62% 78%, 50% 100%, 38% 78%, 8% 92%, 22% 60%, 0 46%, 20% 34%, 12% 6%, 39% 22%); display: grid; place-items: center; }
+.burst span { font-weight: 900; font-size: 30px; letter-spacing: -0.04em; color: var(--terracota); -webkit-text-stroke: 1.5px var(--tinta); transform: rotate(-6deg); }
+/* 4 Plastilina */
+.s-clay { background: #F3D9CC; color: var(--tinta); }
+.blob { position: absolute; border-radius: 48% 52% 46% 54% / 55% 45% 55% 45%; box-shadow: inset -8px -10px 16px rgba(0,0,0,0.16), inset 8px 8px 14px rgba(255,255,255,0.5), 0 14px 18px -10px rgba(0,0,0,0.3); }
+.b1 { width: 120px; height: 92px; left: 18%; top: 34%; background: var(--coral); }
+.b2 { width: 70px; height: 70px; left: 52%; top: 22%; background: var(--turquesa); border-radius: 50%; }
+.b3 { width: 96px; height: 62px; right: 12%; bottom: 18%; background: var(--mostaza); }
+.b4 { width: 42px; height: 42px; left: 44%; bottom: 14%; background: var(--blanco); border-radius: 50%; }
+/* 5 Tipografía */
+.s-type { background: var(--tinta); color: var(--blanco); }
+.s-type .stage { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; padding: 18px; }
+.s-type .cellt { font-weight: 900; letter-spacing: -0.05em; line-height: 0.85; display: flex; align-items: flex-end; overflow: hidden; }
+.s-type .c1 { font-size: 78px; color: var(--mostaza); }
+.s-type .c2 { font-size: 30px; justify-content: flex-end; align-items: flex-start; text-align: right; }
+.s-type .c3 { font-size: 30px; align-items: flex-start; color: var(--turquesa); }
+.s-type .c4 { font-size: 52px; justify-content: flex-end; color: var(--coral); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .s-min .trace { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 3s var(--ease) infinite; }
+  .s-min .coin { offset-path: path("M70 120 C 140 40, 240 40, 310 120"); animation: travel 3s var(--ease) infinite; transform: none; }
+  .pc1 { animation: sway 4s ease-in-out infinite; } .pc2 { animation: sway 4.6s ease-in-out infinite reverse; } .pc4 { animation: sway 5s ease-in-out infinite; }
+  .burst { animation: pulse 2.4s ease-in-out infinite; }
+  .b1 { animation: squish 3s ease-in-out infinite; } .b2 { animation: squish 3.4s ease-in-out infinite .3s; } .b3 { animation: squish 2.8s ease-in-out infinite .6s; }
+  .s-type .cellt span { display: inline-block; animation: rise 3.2s var(--ease) infinite; }
+  .s-type .c2 span { animation-delay: .15s; } .s-type .c3 span { animation-delay: .3s; } .s-type .c4 span { animation-delay: .45s; }
+}
+@keyframes travel { from { offset-distance: 0%; } 70%, to { offset-distance: 100%; } }
+@keyframes sway { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+@keyframes pulse { 0%, 100% { scale: 1; } 50% { scale: 1.05; } }
+@keyframes squish { 0%, 100% { scale: 1 1; } 50% { scale: 1.06 0.94; } }
+@keyframes rise { 0% { transform: translateY(0); } 12% { transform: translateY(-105%); } 13% { transform: translateY(105%); } 28%, 100% { transform: translateY(0); } }
+
+/* Precios */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.plan { border: 1.5px solid var(--linea); border-radius: 26px; padding: 30px; display: flex; flex-direction: column; gap: 14px; min-width: 0; background: var(--blanco); }
+.plan.feat { border-color: var(--tinta); box-shadow: 6px 6px 0 var(--tinta); }
+.plan .name { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.plan .len { font-size: 14px; font-weight: 600; color: var(--suave); }
+.plan .price { font-weight: 900; font-size: 44px; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.plan .price small { font-size: 15px; font-weight: 600; color: var(--suave); letter-spacing: 0; }
+.plan .tbd { font-weight: 800; font-size: 26px; letter-spacing: -0.03em; color: var(--suave); }
+.plan ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; font-size: 15px; }
+.plan li { padding-left: 24px; position: relative; }
+.plan li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 12px; height: 7px; border-left: 2px solid var(--turquesa); border-bottom: 2px solid var(--turquesa); transform: rotate(-45deg); }
+.plan .tag { align-self: flex-start; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; background: var(--mostaza); color: var(--tinta); }
+.plan .btn { margin-top: auto; }
+.note { text-align: center; font-size: 15px; color: var(--suave); margin-top: 24px; }
+@media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
+
+/* Proceso */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: step; }
+.step { border-radius: 24px; padding: 26px; background: var(--blanco); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step .n { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--tinta); color: var(--blanco); font-variant-numeric: tabular-nums; }
+.step h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+.step p { font-size: 15px; color: var(--suave); }
+@media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+/* Cierre */
+.final { background: var(--tinta); color: var(--blanco); border-radius: 36px; padding: clamp(36px, 6vw, 72px); display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
+.final h2 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 900; line-height: 0.98; }
+.final .lead { color: #B9C6C8; margin-top: 16px; font-size: 18px; }
+.channels { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.channel { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-radius: 18px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); min-width: 0; }
+.channel small { display: block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #B9C6C8; font-weight: 700; }
+.channel span { font-weight: 700; user-select: all; overflow-wrap: anywhere; }
+.channel a { text-decoration: none; }
+.copy { all: unset; cursor: pointer; font-size: 13px; font-weight: 800; padding: 7px 14px; border-radius: 999px; background: var(--blanco); color: var(--tinta); flex: none; }
+@media (max-width: 860px) { .final { grid-template-columns: 1fr; } }
+
+footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; color: var(--suave); font-size: 14px; }
+
+/* Reproductor */
+dialog { border: none; padding: 0; background: transparent; color: var(--blanco); max-width: 100vw; max-height: 100vh; }
+dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px); }
+.player { display: flex; flex-direction: column; gap: 12px; align-items: center; padding: 16px; }
+.player video { height: min(82vh, 860px); max-width: calc(100vw - 32px); aspect-ratio: 9 / 16; border-radius: 20px; background: #000; object-fit: contain; }
+.player .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; max-width: calc(min(82vh, 860px) * 9 / 16); }
+.player .bar b { font-weight: 700; font-size: 15px; }
+.close { all: unset; cursor: pointer; font-weight: 800; font-size: 14px; padding: 8px 16px; border-radius: 999px; background: var(--blanco); color: var(--tinta); }
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="-125 -125 250 250">
+      <path d="M62 -62 A88 88 0 1 0 62 62" fill="none" stroke="#49BFB5" stroke-width="34" stroke-linecap="round"/>
+      <circle cx="86" cy="0" r="18" fill="#E3A93B"/>
+      <path d="M-26 -30 L30 0 L-26 30 Z" fill="#D2643F" stroke="#D2643F" stroke-width="8" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="banner"><div class="wrap">Videos animados <b>desde 20 USD</b>, listos en 3 a 5 días hábiles</div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Clipedia, inicio"><svg aria-hidden="true"><use href="#logo"/></svg>clipedia</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#videos">Videos</a>
+      <a href="#estilos">Estilos</a>
+      <a href="#precios">Precios</a>
+      <a class="btn dark" href="#contacto">Pedir un video</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap">
+    <div class="hero">
+      <h1>Tu idea, explicada <span class="squig">en movimiento<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 6, 296 9"/></svg></span>. <span class="ia">Ahora con IA.</span></h1>
+      <p class="lead">Videos animados en el formato que necesites: vertical para TikTok y Reels, horizontal para YouTube o cuadrado para tu feed. Tú nos cuentas la idea, nosotros la investigamos, la escribimos y la animamos en el estilo que elijas.</p>
+      <div class="actions">
+        <a class="btn dark" href="#contacto">Cotiza tu video</a>
+        <a class="btn ghost" href="#videos">Ver portafolio</a>
+      </div>
+      <div class="proof"><span>Desde 20 USD</span><span>3 a 5 días hábiles</span><span>5 estilos a elegir</span><span>Cualquier formato, mismo precio</span></div>
+    </div>
+
+    <div class="showreel"><video src="media/promo.mp4" poster="media/promo.jpg" controls playsinline preload="metadata" aria-label="Video promocional de Clipedia"></video></div>
+    <p class="showreel-cap">Así trabajamos: 5 estilos en 56 segundos</p>
+
+    <div class="reel" id="videos" aria-label="Portafolio"></div>
+  </div>
+
+  <section class="paper">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Por qué Clipedia</div>
+        <h2>De la idea al video en días</h2>
+        <p>Nos potenciamos con inteligencia artificial para producir rápido, y cada video lo dirige una persona que cuida que se entienda.</p>
+      </div>
+      <div class="why">
+        <article><div class="big">3–5</div><h3>Días hábiles de entrega</h3><p>La IA acelera la producción. Tú recibes tu video en días, no en semanas.</p></article>
+        <article><div class="big" style="color:var(--terracota)">1</div><h3>Idea central por video</h3><p>Investigamos y citamos fuentes. Si no se entiende a la primera, no está listo.</p></article>
+        <article><div class="big" style="color:var(--petroleo)">100&nbsp;%</div><h3>A tu medida</h3><p>Tus colores, tu voz y tu ritmo. Te acompañamos desde la idea hasta el video final.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="estilos">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Estilos</div>
+        <h2>Elige cómo se ve</h2>
+        <p>Cinco estilos para que tu video se parezca a tu marca. Si tienes otro en mente, lo hacemos.</p>
+      </div>
+      <div class="styles">
+        <article class="style s-min wide">
+          <div class="stage" aria-hidden="true">
+            <svg viewBox="0 0 380 230" preserveAspectRatio="xMidYMid meet">
+              <rect class="glass" x="40" y="70" width="60" height="100" rx="12"/>
+              <rect class="glass" x="280" y="70" width="60" height="100" rx="12"/>
+              <rect class="ln" x="40" y="70" width="60" height="100" rx="12"/>
+              <rect class="ln" x="280" y="70" width="60" height="100" rx="12"/>
+              <path class="ln trace" pathLength="1" d="M70 120 C 140 40, 240 40, 310 120" stroke-dasharray="4 6"/>
+              <circle class="coin" r="8" cx="0" cy="0"/>
+            </svg>
+          </div>
+          <div class="info"><div class="n">01</div><h3>Minimalista</h3><p>Línea fina, vidrio y mucho aire. Sobrio y elegante.</p></div>
+        </article>
+        <article class="style s-col wide">
+          <div class="stage" aria-hidden="true">
+            <div class="paper-cut pc1">café</div>
+            <div class="paper-cut pc2">desde 1952</div>
+            <div class="paper-cut pc3"></div>
+            <div class="paper-cut pc4">nuestra historia</div>
+          </div>
+          <div class="info"><div class="n">02</div><h3>Collage</h3><p>Recortes, texturas y humor. Cercano y con carácter.</p></div>
+        </article>
+        <article class="style s-pop">
+          <div class="stage" aria-hidden="true"><div class="burst"><span>¡NUEVO!</span></div></div>
+          <div class="info"><div class="n">03</div><h3>Pop art</h3><p>Color, puntos y energía de cómic.</p></div>
+        </article>
+        <article class="style s-clay">
+          <div class="stage" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
+          <div class="info"><div class="n">04</div><h3>Plastilina</h3><p>Volumen suave y amable, como hecho a mano.</p></div>
+        </article>
+        <article class="style s-type">
+          <div class="stage" aria-hidden="true">
+            <div class="cellt c1"><span>2x1</span></div>
+            <div class="cellt c2"><span>solo<br>hoy</span></div>
+            <div class="cellt c3"><span>sin<br>filtro</span></div>
+            <div class="cellt c4"><span>ya.</span></div>
+          </div>
+          <div class="info"><div class="n">05</div><h3>Tipografía animada</h3><p>Solo texto en movimiento. Directo al grano.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="precios" class="paper">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Precios</div>
+        <h2>Precios claros</h2>
+        <p>Vertical 9:16, horizontal 16:9 o cuadrado 1:1: el formato no cambia el precio. Todo video sale listo para publicar, con subtítulos, voz en off y portada.</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <div class="name">Clip explicativo</div>
+          <div class="len">Hasta 60 segundos</div>
+          <div class="price">20 USD<small> desde</small></div>
+          <ul><li>Una idea central, de principio a fin</li><li>Guion y animación a la medida</li><li>Una ronda de cambios</li></ul>
+          <a class="btn ghost" href="#contacto">Lo quiero</a>
+        </article>
+        <article class="plan feat">
+          <div class="tag">El más pedido</div>
+          <div class="name">Video a fondo</div>
+          <div class="len">De 2 a 3 minutos</div>
+          <div class="price">50 USD<small> por video</small></div>
+          <ul><li>Investigación con fuentes citadas</li><li>Storyboard aprobado antes de animar</li><li>Voz en off y diseño sonoro</li><li>Dos rondas de cambios</li></ul>
+          <a class="btn dark" href="#contacto">Lo quiero</a>
+        </article>
+        <article class="plan">
+          <div class="name">Serie mensual</div>
+          <div class="len">4 videos al mes</div>
+          <div class="price">150 USD<small> al mes</small></div>
+          <ul><li>Calendario de temas para tu marca</li><li>Estilo de serie propio</li><li>Portadas para tu perfil</li></ul>
+          <a class="btn ghost" href="#contacto">Hablemos</a>
+        </article>
+      </div>
+      <p class="note">Entrega en 3 a 5 días hábiles según el plan. Hacemos cualquier formato al mismo precio. ¿Otra duración? La cotizamos.</p>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Cómo trabajamos</div>
+        <h2>Cuatro pasos y listo</h2>
+      </div>
+      <div class="steps">
+        <div class="step" style="background:var(--papel)"><div class="n">1</div><h3>Nos cuentas la idea</h3><p>Qué quieres explicar, a quién y dónde lo vas a publicar.</p></div>
+        <div class="step" style="background:var(--papel)"><div class="n">2</div><h3>Guion con fuentes</h3><p>Encontramos el ángulo y escribimos el guion. Lo apruebas antes de animar.</p></div>
+        <div class="step" style="background:var(--papel)"><div class="n">3</div><h3>Eliges el estilo</h3><p>Minimalista, collage, pop art, plastilina o tipografía. O el tuyo.</p></div>
+        <div class="step" style="background:var(--papel)"><div class="n">4</div><h3>Recibes tu video</h3><p>Animado con ayuda de IA y entregado en 3 a 5 días hábiles.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="padding-top:0">
+    <div class="wrap">
+      <div class="final">
+        <div>
+          <h2>¿Qué quieres explicar?</h2>
+          <p class="lead">Escríbenos y te respondemos con una idea de enfoque y una cotización.</p>
+        </div>
+        <div class="channels">
+          <div class="channel"><div><small>Correo</small><span id="mail">clipedia.studio@gmail.com</span></div><button class="copy" type="button" data-copy="mail">Copiar</button></div>
+          <div class="channel"><div><small>Instagram</small><a href="https://www.instagram.com/clipedia" target="_blank" rel="noopener"><span>@clipedia</span></a></div></div>
+          <div class="channel"><div><small>TikTok</small><a href="https://www.tiktok.com/@clipedia" target="_blank" rel="noopener"><span>@clipedia</span></a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Clipedia · La enciclopedia que se mira</span>
+    <span>Videos animados, potenciados con IA</span>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-label="Reproductor de video">
+  <div class="player">
+    <video id="pv" controls playsinline preload="metadata"></video>
+    <div class="bar"><b id="pt"></b><button class="close" type="button" id="pc">Cerrar</button></div>
+  </div>
+</dialog>
+
+<script>
+const VIDEOS = [
+  { id: "1", t: "La enciclopedia que se mira", dur: "0:58" },
+  { id: "2", t: "Silencio hecho con sonido", dur: "1:20" },
+  { id: "3", t: "¿Qué esconde un código QR?", dur: "1:45" },
+  { id: "4", t: "¿Por qué procrastinamos?", dur: "2:56" },
+  { id: "5", t: "El cero lo cambió todo", dur: "3:09" }
+];
+const reel = document.getElementById("reel") || document.getElementById("videos");
+const dlg = document.getElementById("dlg"), pv = document.getElementById("pv"), pt = document.getElementById("pt");
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+VIDEOS.forEach(v => {
+  const b = document.createElement("button");
+  b.className = "card"; b.type = "button";
+  b.setAttribute("aria-label", "Ver " + v.t);
+  const loop = still ? "" : `<video src="media/l${v.id}.mp4" poster="media/v${v.id}.jpg" muted loop playsinline autoplay preload="auto"></video>`;
+  b.innerHTML = `<div class="frame"><img src="media/v${v.id}.jpg" alt="">${loop}<span class="dur">${v.dur}</span></div>
+    <div class="meta"><h3>${v.t}</h3><span class="open">Ver ›</span></div>`;
+  b.addEventListener("click", () => {
+    pv.src = `media/v${v.id}.mp4`; pv.poster = `media/v${v.id}.jpg`; pt.textContent = v.t;
+    dlg.showModal(); pv.play().catch(() => {});
+  });
+  reel.appendChild(b);
+});
+function closeDlg() { pv.pause(); dlg.close(); }
+document.getElementById("pc").addEventListener("click", closeDlg);
+dlg.addEventListener("click", e => { if (e.target === dlg) closeDlg(); });
+dlg.addEventListener("close", () => pv.pause());
+
+document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", () => {
+  const el = document.getElementById(btn.dataset.copy), txt = el.textContent;
+  const done = () => { btn.textContent = "Copiado"; setTimeout(() => btn.textContent = "Copiar", 1600); };
+  if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(() => selectText(el));
+  else selectText(el);
+}));
+function selectText(el) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+</script>
+</body>
+</html>
