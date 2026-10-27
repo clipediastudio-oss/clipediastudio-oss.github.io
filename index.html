@@ -198,6 +198,7 @@ section.paper { background: var(--papel); }
 .pago .dato { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding: 10px 12px 10px 14px; border-radius: 14px; background: var(--papel); min-width: 0; }
 .pago .dato span { font-weight: 700; font-size: 15px; user-select: all; overflow-wrap: anywhere; min-width: 0; }
 .pago .copy { background: var(--tinta); color: var(--blanco); }
+.pago .paypal { margin-top: auto; min-height: 45px; }
 .pago .btn { margin-top: auto; padding: 11px 18px; font-size: 15px; }
 .note { text-align: center; font-size: 15px; color: var(--suave); margin-top: 24px; }
 @media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
@@ -384,13 +385,18 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
       <div class="head">
         <div class="eyebrow">Pagos</div>
         <h2>Paga como prefieras</h2>
-        <p>Cuando apruebes la propuesta te confirmamos el valor final. ¿Pagas desde fuera de Colombia? Escríbenos y te enviamos un link de PayPal.</p>
+        <p>Cuando apruebes la propuesta te confirmamos el valor final. Paga desde Colombia con Bold o desde cualquier país con PayPal.</p>
       </div>
       <div class="pagos">
         <article class="pago">
           <div class="name">Bold</div>
           <p>Desde Colombia, con tarjeta, PSE, Nequi o Botón Bancolombia.</p>
           <a class="btn dark" href="https://checkout.bold.co/payment/LNK_GCML0SS4PJ" target="_blank" rel="noopener">Pagar con Bold</a>
+        </article>
+        <article class="pago">
+          <div class="name">PayPal</div>
+          <p>Desde cualquier país, en USD, con tarjeta o saldo PayPal.</p>
+          <div class="paypal" id="paypal-container-MWRNHHWS4HDHG"></div>
         </article>
       </div>
     </div>
@@ -479,6 +485,10 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
   else selectText(el);
 }));
 function selectText(el) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+</script>
+<script src="https://www.paypal.com/sdk/js?client-id=BAApgo9K9_pNYyXXHLTyZDU8rnhf1HaGKh3AhKBEuZBtl1wSm3RKfDf_z73ZX9np_1iojZNHdnGCoZ4woc&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+<script>
+  if (window.paypal) paypal.HostedButtons({ hostedButtonId: "MWRNHHWS4HDHG" }).render("#paypal-container-MWRNHHWS4HDHG");
 </script>
 </body>
 </html>
