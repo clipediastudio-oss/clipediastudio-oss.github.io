@@ -146,6 +146,7 @@ p { margin: 0; }
 /* Video promocional (16:9) */
 .showreel { position: relative; margin: 0 auto 16px; max-width: 1040px; border-radius: 28px; overflow: hidden; background: var(--petroleo); box-shadow: 0 30px 60px -30px rgba(30,42,48,0.45); }
 .showreel video { display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: var(--petroleo); }
+.showreel-cap small { display: block; margin-top: 4px; font-size: 11.5px; font-weight: 500; color: var(--suave); }
 .showreel-cap { text-align: center; font-size: 15px; font-weight: 700; color: var(--petroleo); margin: 0 0 clamp(40px, 6vw, 72px); }
 
 /* Muestrario de videos */
@@ -478,7 +479,7 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
   <div class="wrap">
 
     <div class="showreel"><video src="media/promo.mp4" poster="media/promo.jpg" controls playsinline preload="metadata" aria-label="Video promocional de Clipedia"></video></div>
-    <p class="showreel-cap">Así se ve una idea cuando la contamos bien</p>
+    <p class="showreel-cap">Así se ve una idea cuando la contamos bien<small>Music: MokkaMusic – Robot</small></p>
 
     <div class="reel" id="videos" aria-label="Portafolio"></div>
   </div>
