@@ -143,9 +143,13 @@ p { margin: 0; }
   .js .rv.in { opacity: 1; translate: 0 0; }
 }
 
-/* Video promocional (16:9) */
+/* Video promocional: horizontal 16:9 en pantallas anchas, cuadrado 1:1 en tabletas en vertical y 9:16 en celulares */
 .showreel { position: relative; margin: 0 auto 16px; max-width: 1040px; border-radius: 28px; overflow: hidden; background: var(--petroleo); box-shadow: 0 30px 60px -30px rgba(30,42,48,0.45); }
 .showreel video { display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: var(--petroleo); }
+.showreel[data-f="c"] { max-width: min(640px, calc(100svh - 140px)); }
+.showreel[data-f="c"] video { aspect-ratio: 1 / 1; }
+.showreel[data-f="v"] { max-width: min(440px, calc((100svh - 120px) * 9 / 16)); border-radius: 22px; }
+.showreel[data-f="v"] video { aspect-ratio: 9 / 16; }
 .showreel-cap small { display: block; margin-top: 4px; font-size: 11.5px; font-weight: 500; color: var(--suave); }
 .showreel-cap { text-align: center; font-size: 15px; font-weight: 700; color: var(--petroleo); margin: 0 0 clamp(40px, 6vw, 72px); }
 
@@ -485,7 +489,28 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
 </div>
   <div class="wrap">
 
-    <div class="showreel"><video src="media/promo-v3.mp4" poster="media/promo-v3.jpg" controls playsinline preload="metadata" aria-label="Video promocional de Clipedia"></video></div>
+    <div class="showreel" id="showreel"><video controls playsinline preload="metadata" aria-label="Video promocional de Clipedia"></video><noscript><video src="media/promo-v3.mp4?v=2" poster="media/promo-v3.jpg?v=2" controls playsinline preload="metadata"></video></noscript></div>
+    <script>
+    // El promo se elige según la pantalla: vertical en celulares, cuadrado en tabletas en vertical y horizontal en el resto.
+    (() => {
+      const box = document.getElementById("showreel"), v = box.querySelector("video");
+      const cel = matchMedia("(max-width: 600px) and (orientation: portrait)");
+      const tab = matchMedia("(max-width: 1024px) and (orientation: portrait)");
+      const archivo = { h: "promo-v3", c: "promo-v3-cuadrado", v: "promo-v3-vertical" };
+      const elige = () => {
+        const f = cel.matches ? "v" : tab.matches ? "c" : "h";
+        if (box.dataset.f === f || (box.dataset.f && !v.paused)) return;
+        const t = v.currentTime;
+        box.dataset.f = f;
+        v.poster = `media/${archivo[f]}.jpg?v=2`;
+        v.src = `media/${archivo[f]}.mp4?v=2`;
+        if (t) v.currentTime = t;
+      };
+      elige();
+      cel.addEventListener("change", elige);
+      tab.addEventListener("change", elige);
+    })();
+    </script>
     <p class="showreel-cap">Así se ve una idea cuando la contamos bien<small>Music: MokkaMusic – Robot</small></p>
 
     <div class="reel" id="videos" aria-label="Portafolio"></div>
