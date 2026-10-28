@@ -100,14 +100,25 @@ p { margin: 0; }
 /* Portada: fondo con manchas de la paleta y clips que flotan a los lados */
 .hero-zone { position: relative; overflow: hidden; background: radial-gradient(60% 70% at 8% 20%, rgba(191,227,222,0.55), transparent 70%), radial-gradient(50% 60% at 95% 30%, rgba(246,215,184,0.6), transparent 70%), radial-gradient(40% 50% at 50% 110%, rgba(238,243,242,1), transparent 70%); }
 .floats { position: absolute; inset: 0; pointer-events: none; }
-.fl { position: absolute; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 40px -20px rgba(30,42,48,0.45); background: var(--tinta); }
-.fl img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.fl.v { width: clamp(110px, 10vw, 168px); aspect-ratio: 9 / 16; }
-.fl.q { width: clamp(100px, 9vw, 150px); aspect-ratio: 1 / 1; }
-.f1 { left: max(2vw, calc(50% - 760px)); top: 9%; rotate: -8deg; }
-.f2 { left: max(9vw, calc(50% - 620px)); top: 58%; rotate: 6deg; }
-.f3 { right: max(2vw, calc(50% - 760px)); top: 7%; rotate: 7deg; }
-.f4 { right: max(10vw, calc(50% - 610px)); top: 56%; rotate: -5deg; }
+.fl { position: absolute; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.fl .scr { position: relative; overflow: hidden; background: var(--tinta); box-shadow: 0 24px 40px -20px rgba(30,42,48,0.45); width: 100%; }
+.fl video, .fl img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.fl figcaption { font-size: 12px; font-weight: 800; letter-spacing: 0.02em; padding: 4px 11px; border-radius: 999px; background: var(--blanco); color: var(--tinta); box-shadow: 0 6px 14px -8px rgba(30,42,48,0.5); white-space: nowrap; }
+.fl figcaption b { color: var(--k, var(--terracota)); }
+.fl.phone { width: clamp(108px, 9.4vw, 150px); }
+.fl.phone .scr { aspect-ratio: 9 / 16; border-radius: 24px; border: 5px solid var(--tinta); }
+.fl.phone .scr::after { content: ""; position: absolute; top: 6px; left: 50%; width: 34%; height: 9px; margin-left: -17%; border-radius: 6px; background: var(--tinta); z-index: 1; }
+.fl.screen { width: clamp(190px, 17vw, 270px); --k: var(--petroleo); }
+.fl.screen .scr { aspect-ratio: 16 / 9; border-radius: 12px; border: 5px solid var(--tinta); }
+.fl.screen .stand { width: 26%; height: 14px; margin-top: -10px; background: linear-gradient(var(--tinta), var(--tinta)) center top / 22% 10px no-repeat, linear-gradient(var(--tinta), var(--tinta)) center bottom / 100% 4px no-repeat; }
+.fl.square { width: clamp(110px, 9.6vw, 150px); --k: var(--mostaza); }
+.fl.square .scr { aspect-ratio: 1 / 1; border-radius: 18px; }
+.fl.portrait { width: clamp(110px, 9.6vw, 148px); --k: var(--turquesa); }
+.fl.portrait .scr { aspect-ratio: 4 / 5; border-radius: 18px; }
+.f1 { left: max(2vw, calc(50% - 760px)); top: 7%; rotate: -7deg; }
+.f2 { left: max(9vw, calc(50% - 600px)); top: 60%; rotate: 6deg; }
+.f3 { right: max(1.5vw, calc(50% - 790px)); top: 10%; rotate: 5deg; }
+.f4 { right: max(10vw, calc(50% - 600px)); top: 55%; rotate: -6deg; }
 .sh { position: absolute; }
 .sh.dot { width: 22px; height: 22px; border-radius: 50%; background: var(--mostaza); left: max(15vw, calc(50% - 540px)); top: 36%; }
 .sh.ring { width: 70px; height: 70px; right: max(16vw, calc(50% - 520px)); top: 40%; }
@@ -116,7 +127,7 @@ p { margin: 0; }
 .sh.play path { fill: var(--coral); }
 .sh.spark { width: 26px; height: 26px; right: max(3vw, calc(50% - 720px)); top: 84%; }
 .sh.spark path { fill: none; stroke: var(--petroleo); stroke-width: 2.4; stroke-linecap: round; }
-@media (max-width: 1180px) { .f2, .f4 { display: none; } .fl.v { width: 104px; } .f1 { left: -30px; top: 14%; } .f3 { right: -30px; top: 12%; } .sh.dot { left: 4vw; top: 70%; } .sh.ring { right: 4vw; top: 72%; } .sh.play, .sh.spark { display: none; } }
+@media (max-width: 1180px) { .f2, .f4 { display: none; } .fl.phone { width: 100px; } .fl.screen { width: 170px; } .f1 { left: -24px; top: 14%; } .f3 { right: -60px; top: 14%; } .sh.dot { left: 4vw; top: 70%; } .sh.ring { right: 4vw; top: 72%; } .sh.play, .sh.spark { display: none; } }
 @media (max-width: 760px) { .fl { display: none; } .sh.ring { width: 44px; height: 44px; top: 4%; right: 6vw; } .sh.dot { top: 6%; left: 8vw; width: 16px; height: 16px; } }
 @media (prefers-reduced-motion: no-preference) {
   .f1 { animation: flo 7s ease-in-out infinite; } .f2 { animation: flo 8s ease-in-out infinite -2s; } .f3 { animation: flo 7.5s ease-in-out infinite -4s; } .f4 { animation: flo 6.5s ease-in-out infinite -1s; }
@@ -441,10 +452,10 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
 <main id="inicio">
 <div class="hero-zone">
   <div class="floats" aria-hidden="true">
-    <div class="fl v f1"><img src="media/v1.jpg" alt=""></div>
-    <div class="fl q f2"><img src="media/e-col.jpg" alt=""></div>
-    <div class="fl v f3"><img src="media/v3.jpg" alt=""></div>
-    <div class="fl q f4"><img src="media/e-clay.jpg" alt=""></div>
+    <figure class="fl phone f1"><div class="scr"><img src="media/v1.jpg" alt=""><video data-src="media/l1.mp4" muted loop playsinline preload="none"></video></div><figcaption><b>9:16</b> Celular</figcaption></figure>
+    <figure class="fl square f2"><div class="scr"><img src="media/e-col.jpg" alt=""><video data-src="media/f-q.mp4" muted loop playsinline preload="none"></video></div><figcaption><b>1:1</b> Cuadrado</figcaption></figure>
+    <figure class="fl screen f3"><div class="scr"><img src="media/f-h.jpg" alt=""><video data-src="media/f-h.mp4" muted loop playsinline preload="none"></video></div><div class="stand"></div><figcaption><b>16:9</b> Pantalla</figcaption></figure>
+    <figure class="fl portrait f4"><div class="scr"><img src="media/f-p.jpg" alt=""><video data-src="media/f-p.mp4" muted loop playsinline preload="none"></video></div><figcaption><b>4:5</b> Feed</figcaption></figure>
     <span class="sh dot"></span>
     <svg class="sh ring" viewBox="-60 -60 120 120"><path d="M30 -30 A42 42 0 1 0 30 30"/></svg>
     <svg class="sh play" viewBox="0 0 24 24"><path d="M6 4 L20 12 L6 20 Z"/></svg>
@@ -879,6 +890,10 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
   document.querySelectorAll("[data-priv]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); priv.showModal(); }));
   document.getElementById("priv-x").addEventListener("click", () => priv.close());
 })();
+document.querySelectorAll(".fl video[data-src]").forEach(v => {
+  if (still || !v.offsetParent) return;
+  v.src = v.dataset.src; v.play().catch(() => {});
+});
 if ("IntersectionObserver" in window) {
   const rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (i % 5) * 70 + "ms"; rio.observe(el); });
