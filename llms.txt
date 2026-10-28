@@ -1,0 +1,32 @@
+# Clipedia
+
+> Clipedia es una agencia de animación de videos. Hacemos videos animados y explicativos para marcas, empresas, startups y creadores en Colombia, Latinoamérica y cualquier país, en cualquier formato (vertical 9:16, horizontal 16:9, cuadrado 1:1 y 4:5) al mismo precio.
+
+Sitio: https://clipediastudio-oss.github.io/
+Contacto: clipedia.studio@gmail.com · Instagram @clipedia.studio
+Cotización: formulario en https://clipediastudio-oss.github.io/#contacto
+
+## Servicios y precios
+- Clip explicativo: hasta 60 segundos, desde 20 USD, una ronda de cambios.
+- Video a fondo: de 2 a 3 minutos, 50 USD, investigación con fuentes, storyboard y dos rondas de cambios.
+- Serie mensual: 4 videos al mes, 150 USD, calendario de temas y estilo de serie propio.
+- Entrega en 3 a 5 días hábiles. Todos los videos incluyen guion, subtítulos, voz en off y portada.
+
+## Estilos de animación
+Diez estilos base en cinco categorías, o uno personalizado:
+- Digital y tecnológico: glassmorfismo, interfaces y datos.
+- Limpio y profesional: minimalismo, ilustración vectorial editorial.
+- Audaz y expresivo: tipografía cinética, brutalismo digital.
+- Cercano y artesanal: trazos animados, collage editorial, plastilina.
+- Cinematográfico: 3D abstracto.
+
+## Cómo trabajamos
+1. El cliente cuenta su idea en el formulario y recibe una cotización por correo.
+2. Escribimos el guion y el cliente lo aprueba antes de animar.
+3. El cliente elige el estilo.
+4. Entregamos el video listo para publicar.
+
+Usamos inteligencia artificial para producir más rápido; cada video lo dirige una persona.
+
+## Pagos
+Bre-B y Bold desde Colombia; PayPal en USD desde cualquier país.
