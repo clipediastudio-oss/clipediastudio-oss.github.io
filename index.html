@@ -18,6 +18,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clipedia","url":"https://clipediastudio-oss.github.io/","image":"https://clipediastudio-oss.github.io/media/promo.jpg","email":"clipedia.studio@gmail.com","description":"Videos animados que explican lo que tu marca hace, en cualquier formato.","areaServed":"Worldwide","priceRange":"20-150 USD","makesOffer":[{"@type":"Offer","name":"Clip explicativo","price":"20","priceCurrency":"USD"},{"@type":"Offer","name":"Video a fondo","price":"50","priceCurrency":"USD"},{"@type":"Offer","name":"Serie mensual","price":"150","priceCurrency":"USD"}]}</script>
 <style>[hidden]{display:none!important}img{max-width:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <title>Clipedia Estudio</title>
+<script>document.documentElement.classList.add("js")</script>
 <meta name="description" content="Clipedia: videos animados que explican lo que tu marca hace. Potenciados con IA, listos en 3 a 5 días hábiles, desde 20 USD.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,6 +39,10 @@
   --mostaza: #E3A93B;
   --coral: #F08A6B;
   --arena: #EADFCB;
+  --durazno: #F6D7B8;
+  --salvia: #9EB79A;
+  --bruma: #BFE3DE;
+  --niebla: #EEF3F2;
   --font: "Red Hat Display", "Helvetica Neue", Arial, sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -52,7 +57,7 @@ p { margin: 0; }
 .wrap { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 :focus-visible { outline: 2.5px solid var(--petroleo); outline-offset: 3px; border-radius: 10px; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-family: inherit; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px; border: 1.5px solid var(--tinta); cursor: pointer; transition: transform .35s var(--ease), background .35s var(--ease); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-family: inherit; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid var(--tinta); cursor: pointer; transition: transform .35s var(--ease), background .35s var(--ease); }
 .btn.dark { background: var(--tinta); color: var(--blanco); }
 .btn.dark:hover { background: #2C3D45; transform: translateY(-2px); }
 .btn.ghost { background: transparent; color: var(--tinta); border-color: var(--linea); }
@@ -71,12 +76,12 @@ p { margin: 0; }
 .nav .btn { padding: 9px 18px; font-size: 14px; color: var(--blanco); }
 @media (max-width: 680px) { .nav a:not(.btn) { display: none; } }
 
-.banner { background: var(--papel); text-align: center; font-size: 14px; font-weight: 600; padding-block: 9px; }
-.banner b { color: var(--terracota); }
+.banner { background: var(--petroleo); color: var(--blanco); text-align: center; font-size: 14px; font-weight: 600; padding-block: 9px; }
+.banner b { color: var(--mostaza); }
 
 /* Portada */
-.hero { text-align: center; padding-block: clamp(56px, 9vw, 112px) clamp(36px, 5vw, 56px); display: flex; flex-direction: column; align-items: center; gap: 26px; }
-.hero h1 { font-size: clamp(46px, 9vw, 112px); font-weight: 900; line-height: 1.04; letter-spacing: -0.055em; max-width: 12ch; }
+.hero { position: relative; z-index: 1; text-align: center; padding-block: clamp(56px, 9vw, 112px) clamp(36px, 5vw, 56px); display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.hero h1 { font-size: clamp(44px, 7.4vw, 100px); font-weight: 900; line-height: 1.04; letter-spacing: -0.055em; max-width: 12ch; }
 .hero h1 .ia { color: var(--terracota); }
 .hero h1 .squig { position: relative; white-space: nowrap; }
 .hero h1 .squig svg { position: absolute; left: -2%; bottom: -0.04em; width: 104%; height: 0.26em; overflow: visible; }
@@ -91,13 +96,57 @@ p { margin: 0; }
 }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 
+
+/* Portada: fondo con manchas de la paleta y clips que flotan a los lados */
+.hero-zone { position: relative; overflow: hidden; background: radial-gradient(60% 70% at 8% 20%, rgba(191,227,222,0.55), transparent 70%), radial-gradient(50% 60% at 95% 30%, rgba(246,215,184,0.6), transparent 70%), radial-gradient(40% 50% at 50% 110%, rgba(238,243,242,1), transparent 70%); }
+.floats { position: absolute; inset: 0; pointer-events: none; }
+.fl { position: absolute; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 40px -20px rgba(30,42,48,0.45); background: var(--tinta); }
+.fl img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.fl.v { width: clamp(110px, 10vw, 168px); aspect-ratio: 9 / 16; }
+.fl.q { width: clamp(100px, 9vw, 150px); aspect-ratio: 1 / 1; }
+.f1 { left: max(2vw, calc(50% - 760px)); top: 9%; rotate: -8deg; }
+.f2 { left: max(9vw, calc(50% - 620px)); top: 58%; rotate: 6deg; }
+.f3 { right: max(2vw, calc(50% - 760px)); top: 7%; rotate: 7deg; }
+.f4 { right: max(10vw, calc(50% - 610px)); top: 56%; rotate: -5deg; }
+.sh { position: absolute; }
+.sh.dot { width: 22px; height: 22px; border-radius: 50%; background: var(--mostaza); left: max(15vw, calc(50% - 540px)); top: 36%; }
+.sh.ring { width: 70px; height: 70px; right: max(16vw, calc(50% - 520px)); top: 40%; }
+.sh.ring path { fill: none; stroke: var(--turquesa); stroke-width: 12; stroke-linecap: round; }
+.sh.play { width: 34px; height: 34px; left: max(3vw, calc(50% - 700px)); top: 80%; }
+.sh.play path { fill: var(--coral); }
+.sh.spark { width: 26px; height: 26px; right: max(3vw, calc(50% - 720px)); top: 84%; }
+.sh.spark path { fill: none; stroke: var(--petroleo); stroke-width: 2.4; stroke-linecap: round; }
+@media (max-width: 1180px) { .f2, .f4 { display: none; } .fl.v { width: 104px; } .f1 { left: -30px; top: 14%; } .f3 { right: -30px; top: 12%; } .sh.dot { left: 4vw; top: 70%; } .sh.ring { right: 4vw; top: 72%; } .sh.play, .sh.spark { display: none; } }
+@media (max-width: 760px) { .fl { display: none; } .sh.ring { width: 44px; height: 44px; top: 4%; right: 6vw; } .sh.dot { top: 6%; left: 8vw; width: 16px; height: 16px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .f1 { animation: flo 7s ease-in-out infinite; } .f2 { animation: flo 8s ease-in-out infinite -2s; } .f3 { animation: flo 7.5s ease-in-out infinite -4s; } .f4 { animation: flo 6.5s ease-in-out infinite -1s; }
+  .sh.dot { animation: flo 5s ease-in-out infinite; } .sh.ring { animation: spinr 14s linear infinite; } .sh.play { animation: flo 6s ease-in-out infinite -3s; } .sh.spark { animation: pulse 3s ease-in-out infinite; }
+}
+@keyframes flo { 0%, 100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+@keyframes spinr { to { rotate: 360deg; } }
+
+/* Cinta de estilos */
+.ribbon { background: var(--tinta); color: var(--blanco); overflow: hidden; padding-block: 16px; margin-top: clamp(8px, 2vw, 24px); }
+.ribbon .track { display: flex; width: max-content; gap: 0; }
+.ribbon span { font-weight: 800; font-size: clamp(18px, 2.2vw, 26px); letter-spacing: -0.02em; white-space: nowrap; padding-inline: 18px; display: inline-flex; align-items: center; gap: 36px; }
+.ribbon span::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--k, var(--mostaza)); }
+.ribbon span:nth-child(4n+2) { --k: var(--turquesa); } .ribbon span:nth-child(4n+3) { --k: var(--coral); } .ribbon span:nth-child(4n+4) { --k: var(--bruma); }
+@media (prefers-reduced-motion: no-preference) { .ribbon .track { animation: rib 45s linear infinite; } }
+@keyframes rib { to { transform: translateX(-50%); } }
+
+/* Aparición al hacer scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .js .rv { opacity: 0; translate: 0 22px; transition: opacity .8s var(--ease), translate .8s var(--ease); }
+  .js .rv.in { opacity: 1; translate: 0 0; }
+}
+
 /* Video promocional (16:9) */
-.showreel { position: relative; margin: 0 auto clamp(40px, 6vw, 72px); max-width: 1040px; border-radius: 28px; overflow: hidden; background: var(--petroleo); box-shadow: 0 30px 60px -30px rgba(30,42,48,0.45); }
+.showreel { position: relative; margin: 0 auto 16px; max-width: 1040px; border-radius: 28px; overflow: hidden; background: var(--petroleo); box-shadow: 0 30px 60px -30px rgba(30,42,48,0.45); }
 .showreel video { display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: var(--petroleo); }
-.showreel-cap { text-align: center; font-size: 14px; font-weight: 600; color: var(--suave); margin: -48px 0 clamp(48px, 7vw, 80px); }
+.showreel-cap { text-align: center; font-size: 15px; font-weight: 700; color: var(--petroleo); margin: 0 0 clamp(40px, 6vw, 72px); }
 
 /* Muestrario de videos */
-.reel { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; padding-bottom: clamp(56px, 8vw, 96px); }
+.reel { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; padding-bottom: clamp(40px, 6vw, 72px); }
 .card { all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .card .frame { position: relative; aspect-ratio: 9 / 16; max-width: 100%; border-radius: 24px; overflow: hidden; background: var(--tinta); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
 .card img, .card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -117,6 +166,13 @@ section.paper { background: var(--papel); }
 .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracota); }
 
 /* Por qué */
+section.deep { position: relative; overflow: hidden; background: radial-gradient(70% 90% at 85% 0%, rgba(73,191,181,0.35), transparent 60%), radial-gradient(60% 80% at 0% 100%, rgba(227,169,59,0.18), transparent 60%), var(--petroleo); color: var(--blanco); }
+section.deep .head p { color: #CFE0E3; }
+section.deep .eyebrow { color: var(--mostaza); }
+section.deep .why article { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+section.deep .why p { color: #CFE0E3; }
+section.deep::after { content: ""; position: absolute; width: 380px; height: 380px; right: -120px; bottom: -160px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.14); pointer-events: none; }
+
 .why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .why article { background: var(--blanco); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 12px; }
 .why .big { font-size: clamp(44px, 5vw, 64px); font-weight: 900; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
@@ -220,7 +276,12 @@ section.paper { background: var(--papel); }
 /* Precios */
 .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .plan { border: 1.5px solid var(--linea); border-radius: 26px; padding: 30px; display: flex; flex-direction: column; gap: 14px; min-width: 0; background: var(--blanco); }
-.plan.feat { border-color: var(--tinta); box-shadow: 6px 6px 0 var(--tinta); }
+.plan { position: relative; overflow: hidden; }
+.plan::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--k, var(--turquesa)); }
+.plan:nth-child(3) { --k: var(--petroleo); }
+.plan.feat { --k: var(--mostaza); border-color: var(--tinta); background: var(--tinta); color: var(--blanco); box-shadow: 8px 8px 0 var(--terracota); }
+.plan.feat .len, .plan.feat .price small { color: #B9C6C8; }
+.plan.feat li::before { border-color: var(--mostaza); }
 .plan .name { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
 .plan .len { font-size: 14px; font-weight: 600; color: var(--suave); }
 .plan .price { font-weight: 900; font-size: 44px; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
@@ -230,30 +291,51 @@ section.paper { background: var(--papel); }
 .plan li { padding-left: 24px; position: relative; }
 .plan li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 12px; height: 7px; border-left: 2px solid var(--turquesa); border-bottom: 2px solid var(--turquesa); transform: rotate(-45deg); }
 .plan .tag { align-self: flex-start; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; background: var(--mostaza); color: var(--tinta); }
-.plan .btn { margin-top: auto; }
-.pagos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 360px)); justify-content: center; gap: 16px; margin-top: 8px; }
-.pago { border: 1.5px solid var(--linea); border-radius: 22px; padding: 22px; background: var(--blanco); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.plan .btn { margin-top: auto; align-self: flex-start; padding: 10px 24px; }
+.pagos { display: grid; grid-template-columns: repeat(2, minmax(0, 400px)); justify-content: center; align-items: start; gap: 16px; margin-top: 8px; }
+.pagos-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+@media (max-width: 760px) { .pagos { grid-template-columns: minmax(0, 1fr); } }
+.pago { border: 1.5px solid var(--linea); border-radius: 22px; padding: 20px 22px; background: var(--blanco); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pago .name { display: flex; align-items: center; gap: 10px; }
+.pago .name::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--k, var(--turquesa)); }
+.pago.bold { --k: var(--terracota); } .pago.pp { --k: var(--petroleo); }
 .pago .name { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
 .pago p { margin: 0; font-size: 14px; color: var(--suave); }
-.pago .dato { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding: 10px 12px 10px 14px; border-radius: 14px; background: var(--papel); min-width: 0; }
+.pago .dato { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px; padding: 10px 12px 10px 14px; border-radius: 14px; background: var(--papel); min-width: 0; }
 .pago .dato span { font-weight: 700; font-size: 15px; user-select: all; overflow-wrap: anywhere; min-width: 0; }
 .pago .copy { background: var(--tinta); color: var(--blanco); }
-.pago .paypal { margin-top: auto; min-height: 45px; }
-.pago .btn { margin-top: auto; padding: 11px 18px; font-size: 15px; }
+.pago .paypal { margin-top: 4px; min-height: 45px; max-width: 340px; }
+.pago .btn { align-self: flex-start; margin-top: 4px; padding: 9px 18px; font-size: 14px; }
 .note { text-align: center; font-size: 15px; color: var(--suave); margin-top: 24px; }
 @media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
 
 /* Proceso */
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: step; }
-.step { border-radius: 24px; padding: 26px; background: var(--blanco); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.step .n { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--tinta); color: var(--blanco); font-variant-numeric: tabular-nums; }
-.step h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
-.step p { font-size: 15px; color: var(--suave); }
-@media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
+section.proc { background: var(--niebla); position: relative; overflow: hidden; }
+.steps { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.steps .path { position: absolute; left: 10%; right: 10%; top: 58px; height: 40px; pointer-events: none; }
+.steps .path path { fill: none; stroke: var(--tinta); stroke-opacity: .25; stroke-width: 2; stroke-dasharray: 6 8; }
+.step { position: relative; border-radius: 26px; padding: 26px 24px 24px; background: var(--bg); display: flex; flex-direction: column; gap: 10px; min-width: 0; transition: transform .5s var(--ease); }
+.step:hover { transform: translateY(-6px) rotate(-0.5deg); }
+.step .ico { width: 64px; height: 64px; border-radius: 20px; background: var(--blanco); display: grid; place-items: center; box-shadow: 0 10px 20px -12px rgba(30,42,48,0.4); }
+.step .ico svg { width: 34px; height: 34px; fill: none; stroke: var(--k); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.step .st-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.step .n { font-size: 52px; font-weight: 900; letter-spacing: -0.05em; line-height: 0.8; color: transparent; -webkit-text-stroke: 1.5px var(--k); font-variant-numeric: tabular-nums; }
+.step .when { align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--k); color: var(--blanco); margin-top: 8px; }
+.step h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+.step p { font-size: 15px; color: #3F5057; }
+.s1 { --bg: var(--bruma); --k: var(--petroleo); }
+.s2 { --bg: var(--durazno); --k: var(--terracota); }
+.s3 { --bg: #FBEBD3; --k: #8A5A10; }
+.s4 { --bg: #DCE5D9; --k: var(--bosque); }
+@media (max-width: 960px) { .steps { grid-template-columns: 1fr 1fr; } .steps .path { display: none; } }
 @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
 
 /* Cierre */
-.final { background: var(--tinta); color: var(--blanco); border-radius: 36px; padding: clamp(36px, 6vw, 72px); display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
+.final { position: relative; overflow: hidden; background: radial-gradient(60% 90% at 100% 0%, rgba(73,191,181,0.28), transparent 60%), var(--tinta); color: var(--blanco); border-radius: 36px; padding: clamp(36px, 6vw, 72px); display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
+.final > * { position: relative; }
+.final .orbit { position: absolute; width: 300px; height: 300px; right: -70px; top: -120px; opacity: .3; pointer-events: none; }
+.final .orbit path { fill: none; stroke: var(--turquesa); stroke-width: 10; stroke-linecap: round; }
+.final .orbit circle { fill: var(--mostaza); }
 .final h2 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 900; line-height: 0.98; }
 .final .lead { color: #B9C6C8; margin-top: 16px; font-size: 18px; }
 .channels { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
@@ -357,6 +439,17 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
 </header>
 
 <main id="inicio">
+<div class="hero-zone">
+  <div class="floats" aria-hidden="true">
+    <div class="fl v f1"><img src="media/v1.jpg" alt=""></div>
+    <div class="fl q f2"><img src="media/e-col.jpg" alt=""></div>
+    <div class="fl v f3"><img src="media/v3.jpg" alt=""></div>
+    <div class="fl q f4"><img src="media/e-clay.jpg" alt=""></div>
+    <span class="sh dot"></span>
+    <svg class="sh ring" viewBox="-60 -60 120 120"><path d="M30 -30 A42 42 0 1 0 30 30"/></svg>
+    <svg class="sh play" viewBox="0 0 24 24"><path d="M6 4 L20 12 L6 20 Z"/></svg>
+    <svg class="sh spark" viewBox="0 0 24 24"><path d="M12 2 V8 M12 16 V22 M2 12 H8 M16 12 H22"/></svg>
+  </div>
   <div class="wrap">
     <div class="hero">
       <h1>Tu idea, explicada <span class="squig">en <span class="ia">movimiento</span><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 6, 296 9"/></svg></span>.</h1>
@@ -367,14 +460,18 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
       </div>
       <div class="proof"><span>Desde 20 USD</span><span>3 a 5 días hábiles</span><span>10 estilos base</span><span>Cualquier formato, mismo precio</span></div>
     </div>
+  </div>
+</div>
+  <div class="wrap">
 
     <div class="showreel"><video src="media/promo.mp4" poster="media/promo.jpg" controls playsinline preload="metadata" aria-label="Video promocional de Clipedia"></video></div>
-    <p class="showreel-cap">Mira lo que podemos hacer por tu marca en 56 segundos</p>
+    <p class="showreel-cap">Así se ve una idea cuando la contamos bien</p>
 
     <div class="reel" id="videos" aria-label="Portafolio"></div>
   </div>
+  <div class="ribbon" aria-hidden="true"><div class="track"><span>Glassmorfismo</span><span>Interfaces y datos</span><span>Minimalismo</span><span>Ilustración vectorial</span><span>Tipografía cinética</span><span>Brutalismo digital</span><span>Trazos animados</span><span>Collage editorial</span><span>Plastilina</span><span>3D abstracto</span><span>Glassmorfismo</span><span>Interfaces y datos</span><span>Minimalismo</span><span>Ilustración vectorial</span><span>Tipografía cinética</span><span>Brutalismo digital</span><span>Trazos animados</span><span>Collage editorial</span><span>Plastilina</span><span>3D abstracto</span></div></div>
 
-  <section class="paper">
+  <section class="deep">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Por qué Clipedia</div>
@@ -382,9 +479,9 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
         <p>Nos potenciamos con inteligencia artificial para producir rápido, y cada video lo dirige una persona que cuida que se entienda.</p>
       </div>
       <div class="why">
-        <article><div class="big">3–5</div><h3>Días hábiles de entrega</h3><p>La IA acelera la producción. Tú recibes tu video en días, no en semanas.</p></article>
-        <article><div class="big" style="color:var(--terracota)">1</div><h3>Idea central por video</h3><p>Investigamos y citamos fuentes. Si no se entiende a la primera, no está listo.</p></article>
-        <article><div class="big" style="color:var(--petroleo)">100&nbsp;%</div><h3>A tu medida</h3><p>Tus colores, tu voz y tu ritmo. Te acompañamos desde la idea hasta el video final.</p></article>
+        <article class="rv"><div class="big" style="color:var(--mostaza)">3–5</div><h3>Días hábiles de entrega</h3><p>La IA acelera la producción. Tú recibes tu video en días, no en semanas.</p></article>
+        <article class="rv"><div class="big" style="color:var(--coral)">1</div><h3>Idea central por video</h3><p>Investigamos y citamos fuentes. Si no se entiende a la primera, no está listo.</p></article>
+        <article class="rv"><div class="big" style="color:var(--turquesa)">100&nbsp;%</div><h3>A tu medida</h3><p>Tus colores, tu voz y tu ritmo. Te acompañamos desde la idea hasta el video final.</p></article>
       </div>
     </div>
   </section>
@@ -404,16 +501,16 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
         <div class="leg c05"><span class="dot"></span><div><b>Cinematográfico</b><small>Lanzamientos, anuncios y videos de producto</small></div></div>
       </div>
       <div class="style-grid">
-        <article class="style c01"><div class="stage s-glass" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><div class="pane"><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Glassmorfismo</h4><p>Moderno y luminoso, ideal para marcas de tecnología.</p></div></article>
-        <article class="style c01"><div class="stage s-ui" aria-hidden="true"><div class="win"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><span class="kpi">+48%</span></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Interfaces y datos</h4><p>Tu producto digital y tus cifras, claros a la primera.</p></div></article>
-        <article class="style c02"><div class="stage" style="background:var(--petroleo)"><video data-src="media/e-min.mp4" poster="media/e-min.jpg" muted loop playsinline aria-label="Ejemplo de estilo minimalista"></video></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Minimalismo</h4><p>Claro y sofisticado: solo lo esencial.</p></div></article>
-        <article class="style c02"><div class="stage s-vec" aria-hidden="true"><span class="sun"></span><span class="hill h1"></span><span class="hill h2"></span><div class="doc"><i></i><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Ilustración vectorial editorial</h4><p>Temas complejos explicados con orden y calidez.</p></div></article>
-        <article class="style c03"><div class="stage s-type" aria-hidden="true"><div class="grid4"><div class="cellt c1"><span>dí</span></div><div class="cellt c2"><span>lo<br>claro</span></div><div class="cellt c3"><span>sin<br>filtro</span></div><div class="cellt c4"><span>ya.</span></div></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Tipografía cinética</h4><p>Tu mensaje en grande, perfecto para anuncios.</p></div></article>
-        <article class="style c03"><div class="stage s-brut" aria-hidden="true"><span class="tag">[ 001 / CLIPEDIA ]</span><div class="box">Sin<br>miedo</div><div class="tape"><span>DESTACA — DIFERÉNCIATE — DESTACA — DIFERÉNCIATE — DESTACA —</span></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Brutalismo digital</h4><p>Atrevido y diferente, para que tu marca no pase desapercibida.</p></div></article>
-        <article class="style c04"><div class="stage s-line" aria-hidden="true"><svg viewBox="0 0 200 200"><path class="tr" pathLength="1" d="M100 46 C 74 46, 62 66, 64 84 C 66 102, 82 110, 84 124 L 116 124 C 118 110, 134 102, 136 84 C 138 66, 126 46, 100 46 Z"/><path class="tr d2" pathLength="1" d="M86 136 L 114 136 M 90 146 L 110 146"/><path class="tr ac d3" pathLength="1" d="M38 160 C 52 150, 58 168, 72 158 M 150 38 l 8 -8 M 160 56 l 11 -2 M 140 28 l 2 -11"/></svg></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Trazos animados</h4><p>Ideas que se dibujan frente a tus ojos.</p></div></article>
-        <article class="style c04"><div class="stage" style="background:var(--arena)"><video data-src="media/e-col.mp4" poster="media/e-col.jpg" muted loop playsinline aria-label="Ejemplo de estilo collage editorial"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Collage editorial</h4><p>Textura y humor para contar historias con personalidad.</p></div></article>
-        <article class="style c04"><div class="stage" style="background:#F3D9CC"><video data-src="media/e-clay.mp4" poster="media/e-clay.jpg" muted loop playsinline aria-label="Ejemplo de estilo plastilina"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Plastilina</h4><p>Suave y cercano, ideal para temas humanos.</p></div></article>
-        <article class="style c05"><div class="stage s-3d" aria-hidden="true"><span class="floor"></span><span class="sph sp1"></span><span class="ring"></span><span class="sph sp2"></span><span class="sph sp3"></span></div><div><span class="cat-tag"><span class="dot"></span>Cinematográfico</span><h4>3D abstracto</h4><p>Acabado de alto nivel que eleva tu marca.</p></div></article>
+        <article class="rv style c01"><div class="stage s-glass" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><div class="pane"><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Glassmorfismo</h4><p>Moderno y luminoso, ideal para marcas de tecnología.</p></div></article>
+        <article class="rv style c01"><div class="stage s-ui" aria-hidden="true"><div class="win"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><span class="kpi">+48%</span></div><div><span class="cat-tag"><span class="dot"></span>Digital y tecnológico</span><h4>Interfaces y datos</h4><p>Tu producto digital y tus cifras, claros a la primera.</p></div></article>
+        <article class="rv style c02"><div class="stage" style="background:var(--petroleo)"><video data-src="media/e-min.mp4" poster="media/e-min.jpg" muted loop playsinline aria-label="Ejemplo de estilo minimalista"></video></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Minimalismo</h4><p>Claro y sofisticado: solo lo esencial.</p></div></article>
+        <article class="rv style c02"><div class="stage s-vec" aria-hidden="true"><span class="sun"></span><span class="hill h1"></span><span class="hill h2"></span><div class="doc"><i></i><i></i><i></i><i></i></div></div><div><span class="cat-tag"><span class="dot"></span>Limpio y profesional</span><h4>Ilustración vectorial editorial</h4><p>Temas complejos explicados con orden y calidez.</p></div></article>
+        <article class="rv style c03"><div class="stage s-type" aria-hidden="true"><div class="grid4"><div class="cellt c1"><span>dí</span></div><div class="cellt c2"><span>lo<br>claro</span></div><div class="cellt c3"><span>sin<br>filtro</span></div><div class="cellt c4"><span>ya.</span></div></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Tipografía cinética</h4><p>Tu mensaje en grande, perfecto para anuncios.</p></div></article>
+        <article class="rv style c03"><div class="stage s-brut" aria-hidden="true"><span class="tag">[ 001 / CLIPEDIA ]</span><div class="box">Sin<br>miedo</div><div class="tape"><span>DESTACA — DIFERÉNCIATE — DESTACA — DIFERÉNCIATE — DESTACA —</span></div></div><div><span class="cat-tag"><span class="dot"></span>Audaz y expresivo</span><h4>Brutalismo digital</h4><p>Atrevido y diferente, para que tu marca no pase desapercibida.</p></div></article>
+        <article class="rv style c04"><div class="stage s-line" aria-hidden="true"><svg viewBox="0 0 200 200"><path class="tr" pathLength="1" d="M100 46 C 74 46, 62 66, 64 84 C 66 102, 82 110, 84 124 L 116 124 C 118 110, 134 102, 136 84 C 138 66, 126 46, 100 46 Z"/><path class="tr d2" pathLength="1" d="M86 136 L 114 136 M 90 146 L 110 146"/><path class="tr ac d3" pathLength="1" d="M38 160 C 52 150, 58 168, 72 158 M 150 38 l 8 -8 M 160 56 l 11 -2 M 140 28 l 2 -11"/></svg></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Trazos animados</h4><p>Ideas que se dibujan frente a tus ojos.</p></div></article>
+        <article class="rv style c04"><div class="stage" style="background:var(--arena)"><video data-src="media/e-col.mp4" poster="media/e-col.jpg" muted loop playsinline aria-label="Ejemplo de estilo collage editorial"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Collage editorial</h4><p>Textura y humor para contar historias con personalidad.</p></div></article>
+        <article class="rv style c04"><div class="stage" style="background:#F3D9CC"><video data-src="media/e-clay.mp4" poster="media/e-clay.jpg" muted loop playsinline aria-label="Ejemplo de estilo plastilina"></video></div><div><span class="cat-tag"><span class="dot"></span>Cercano y artesanal</span><h4>Plastilina</h4><p>Suave y cercano, ideal para temas humanos.</p></div></article>
+        <article class="rv style c05"><div class="stage s-3d" aria-hidden="true"><span class="floor"></span><span class="sph sp1"></span><span class="ring"></span><span class="sph sp2"></span><span class="sph sp3"></span></div><div><span class="cat-tag"><span class="dot"></span>Cinematográfico</span><h4>3D abstracto</h4><p>Acabado de alto nivel que eleva tu marca.</p></div></article>
       </div>
       <p class="estilos-cierre">Tenemos diez estilos base, y también podemos <span>personalizar uno para ti</span>.</p>
       <div class="estilos-cta"><a class="btn dark" href="#contacto" data-quote="">Cuéntanos tu idea</a></div>
@@ -428,22 +525,22 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
         <p>Vertical 9:16, horizontal 16:9 o cuadrado 1:1: el formato no cambia el precio. Todo video sale listo para publicar, con subtítulos, voz en off y portada.</p>
       </div>
       <div class="plans">
-        <article class="plan">
+        <article class="plan rv">
           <div class="name">Clip explicativo</div>
           <div class="len">Hasta 60 segundos</div>
           <div class="price">20 USD<small> desde</small></div>
           <ul><li>Una idea central, de principio a fin</li><li>Guion y animación a la medida</li><li>Una ronda de cambios</li></ul>
           <a class="btn ghost" href="#contacto" data-quote="Clip">Lo quiero</a>
         </article>
-        <article class="plan feat">
+        <article class="plan feat rv">
           <div class="tag">El más pedido</div>
           <div class="name">Video a fondo</div>
           <div class="len">De 2 a 3 minutos</div>
           <div class="price">50 USD<small> por video</small></div>
           <ul><li>Investigación con fuentes citadas</li><li>Storyboard aprobado antes de animar</li><li>Voz en off y diseño sonoro</li><li>Dos rondas de cambios</li></ul>
-          <a class="btn dark" href="#contacto" data-quote="Video a fondo">Lo quiero</a>
+          <a class="btn light" href="#contacto" data-quote="Video a fondo">Lo quiero</a>
         </article>
-        <article class="plan">
+        <article class="plan rv">
           <div class="name">Serie mensual</div>
           <div class="len">4 videos al mes</div>
           <div class="price">150 USD<small> al mes</small></div>
@@ -463,17 +560,19 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
         <p>Primero te enviamos la cotización y, cuando la apruebes, pagas por el medio que prefieras: Bre-B o Bold desde Colombia, o PayPal desde cualquier país.</p>
       </div>
       <div class="pagos">
+        <div class="pagos-col">
         <article class="pago">
           <div class="name">Bre-B</div>
           <p>Desde Colombia, al instante y sin costo desde tu banco, Nequi o Daviplata.</p>
           <div class="dato"><span id="breb">0093861106</span><button class="copy" type="button" data-copy="breb">Copiar</button></div>
         </article>
-        <article class="pago">
+        <article class="pago bold">
           <div class="name">Bold</div>
           <p>Desde Colombia, con tarjeta, PSE, Nequi o Botón Bancolombia.</p>
           <a class="btn dark" href="https://checkout.bold.co/payment/LNK_GCML0SS4PJ" target="_blank" rel="noopener noreferrer">Pagar con Bold</a>
         </article>
-        <article class="pago">
+        </div>
+        <article class="pago pp">
           <div class="name">PayPal</div>
           <p>Desde cualquier país, en USD, con tarjeta o saldo PayPal.</p>
           <div class="paypal" id="paypal-container-MWRNHHWS4HDHG"></div>
@@ -482,17 +581,19 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
     </div>
   </section>
 
-  <section id="proceso">
+  <section id="proceso" class="proc">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Cómo trabajamos</div>
-        <h2>Cuatro pasos y listo</h2>
+        <h2>De tu idea a tu video en cuatro pasos</h2>
+        <p>Tú decides el qué; nosotros nos encargamos del cómo. Así avanza tu proyecto, de principio a fin.</p>
       </div>
       <div class="steps">
-        <div class="step" style="background:var(--papel)"><div class="n">1</div><h3>Nos cuentas la idea</h3><p>Qué quieres explicar, a quién y dónde lo vas a publicar.</p></div>
-        <div class="step" style="background:var(--papel)"><div class="n">2</div><h3>Guion con fuentes</h3><p>Encontramos el ángulo y escribimos el guion. Lo apruebas antes de animar.</p></div>
-        <div class="step" style="background:var(--papel)"><div class="n">3</div><h3>Eliges el estilo</h3><p>Uno de nuestros diez estilos base, o uno personalizado para tu marca.</p></div>
-        <div class="step" style="background:var(--papel)"><div class="n">4</div><h3>Recibes tu video</h3><p>Animado con ayuda de IA y entregado en 3 a 5 días hábiles.</p></div>
+        <svg class="path" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0 5 C 12 0, 22 10, 33 5 S 55 0, 66 5 S 88 10, 100 5" vector-effect="non-scaling-stroke"/></svg>
+        <div class="step s1 rv"><div class="st-top"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></div><div class="n">01</div></div><span class="when">Día 1</span><h3>Nos cuentas tu idea</h3><p>Respondes unas preguntas rápidas y te enviamos tu cotización.</p></div>
+        <div class="step s2 rv"><div class="st-top"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div><div class="n">02</div></div><span class="when">Días 1 y 2</span><h3>Escribimos el guion</h3><p>Investigamos, buscamos el ángulo y lo apruebas antes de animar.</p></div>
+        <div class="step s3 rv"><div class="st-top"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-.5-.2-.8-.4-1.1-.3-.3-.4-.6-.4-1.1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-7.8-9-7.8z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="8" r="1"/></svg></div><div class="n">03</div></div><span class="when">Tú eliges</span><h3>Eliges el estilo</h3><p>Uno de nuestros diez estilos base o uno creado para tu marca.</p></div>
+        <div class="step s4 rv"><div class="st-top"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></div><div class="n">04</div></div><span class="when">Días 3 a 5</span><h3>Recibes tu video</h3><p>Listo para publicar, con subtítulos, música y portada.</p></div>
       </div>
     </div>
   </section>
@@ -500,6 +601,7 @@ dialog::backdrop { background: rgba(15, 22, 26, 0.88); backdrop-filter: blur(6px
   <section id="contacto" style="padding-top:0">
     <div class="wrap">
       <div class="final">
+        <svg class="orbit" viewBox="-125 -125 250 250" aria-hidden="true"><path d="M62 -62 A88 88 0 1 0 62 62"/><circle cx="86" cy="0" r="14"/></svg>
         <div>
           <h2>¿Qué quieres explicar?</h2>
           <p class="lead">Responde unas preguntas rápidas, casi todo con botones, y te enviamos tu cotización.</p>
@@ -777,6 +879,10 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
   document.querySelectorAll("[data-priv]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); priv.showModal(); }));
   document.getElementById("priv-x").addEventListener("click", () => priv.close());
 })();
+if ("IntersectionObserver" in window) {
+  const rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (i % 5) * 70 + "ms"; rio.observe(el); });
+} else document.querySelectorAll(".rv").forEach(el => el.classList.add("in"));
 function selectText(el) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
 </script>
 <script async onload="paypal.HostedButtons({ hostedButtonId: 'MWRNHHWS4HDHG' }).render('#paypal-container-MWRNHHWS4HDHG')" src="https://www.paypal.com/sdk/js?client-id=BAApgo9K9_pNYyXXHLTyZDU8rnhf1HaGKh3AhKBEuZBtl1wSm3RKfDf_z73ZX9np_1iojZNHdnGCoZ4woc&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
